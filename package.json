@@ -27,7 +27,7 @@
   "bugs": {
     "url": "https://github.com/DavidYang2149/MyBakingRecipe/issues"
   },
-  "homepage": "https://CodeSoom.github.io/project-react-2-DavidYang2149",
+  "homepage": "https://davidyang2149.github.io/MyBakingRecipe",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",

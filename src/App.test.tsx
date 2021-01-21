@@ -10,7 +10,7 @@ describe('App', () => {
       <App />
     ));
 
-    expect(container).toHaveTextContent('Oh My Baking Recipe');
+    expect(container).toHaveTextContent('My Baking Recipe');
   });
 
   context('when recipe view page', () => {

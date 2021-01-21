@@ -1,5 +1,5 @@
-# MyBakingRecipe
-[My Baking Recipe](https://github.com/DavidYang2149/MyBakingRecipe)는 레시피를 작성하고 저장하는 공간입니다.
+# My Baking Recipe
+[My Baking Recipe](https://davidyang2149.github.io/MyBakingRecipe)는 레시피를 작성하고 저장하는 공간입니다.
 
 ## Install dependencies
 
@@ -25,14 +25,15 @@ npm run deploy
 npm run lint
 ```
 
-## Run e2e tests
-
-```sh
-npm run test:e2e
-```
-
 ## Run Coverage
 
 ```sh
 npm run coverage
+```
+
+## Run e2e tests
+
+```sh
+# (Require: local server online) npm run dev 
+npm run test:e2e
 ```

@@ -56,13 +56,41 @@ table {
 }
 `
 
+const Header = styled.div `
+  background: greenyellow;
+  padding: 10px;
+	border: 3px solid rgb(50,50,40);
+`
+
+const Main = styled.div `
+  background: mediumseagreen;
+  padding: 10px;
+	border: 3px solid rgb(50,50,40);
+`
+const Footer = styled.div `
+  background: darkgreen;
+  padding: 10px;
+	border: 3px solid rgb(50,50,40);
+`
+
 export default function App() {
   return (
     <>
-      <p>My Baking Recipe</p>
-      <div>
-        레시피명
-      </div>
+      <Header>
+        <p>My Baking Recipe</p>
+        <p>Sign in</p>
+        <p>Sign up</p>
+      </Header>
+      <Main>
+        <ul>
+          <li><button>마들렌</button></li>
+          <li><button>까눌레</button></li>
+          <li><button>크렘 브륄레</button></li>
+        </ul>
+      </Main>
+      <Footer>
+        <p>Footer</p>
+      </Footer>
     </>
   );
 }

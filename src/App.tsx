@@ -6,14 +6,15 @@ import { injectGlobal } from '@emotion/css';
 import styled from '@emotion/styled';
 
 import RecipesPage from './pages/RecipesPage';
+import RecipeWritePage from './pages/RecipeWritePage';
 import Recipe404Page from './pages/Recipe404Page';
 
 injectGlobal(`
-  /* 
-    Origin: http://meyerweb.com/eric/tools/css/reset/ 
-    v2.0 | 20110126
-    License: none (public domain)
-  */
+/* 
+  Origin: http://meyerweb.com/eric/tools/css/reset/ 
+  v2.0 | 20110126
+  License: none (public domain)
+*/
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -35,7 +36,9 @@ time, mark, audio, video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
+
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -49,15 +52,15 @@ ol, ul {
 blockquote, q {
   quotes: none;
 }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
-    content: '';
-    content: none;
-  }
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 `);
 
 const Header = styled.div`
@@ -89,6 +92,7 @@ export default function App() {
       <Main>
         <Switch>
           <Route exact path="/" component={RecipesPage} />
+          <Route path="/recipewrite" component={RecipeWritePage} />
           <Route component={Recipe404Page} />
         </Switch>
       </Main>

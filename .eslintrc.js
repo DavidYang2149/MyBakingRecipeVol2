@@ -43,7 +43,7 @@ module.exports = {
       }
     },
     react: {
-      version: 'latest',
+      version: '999.999.999',
     },
   },
   rules: {
@@ -73,6 +73,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     'key-spacing': ['error', { mode: 'strict' }],
     'arrow-spacing': ['error', { before: true, after: true }],
+    'arrow-body-style': ['error', 'always'],
     'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
     'react/prop-types': 'off',
     'linebreak-style': 'off',

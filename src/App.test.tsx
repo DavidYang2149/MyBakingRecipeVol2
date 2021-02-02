@@ -6,11 +6,13 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  const renderApp = ({ path }: {path: string}) => render((
-    <MemoryRouter initialEntries={[path]}>
-      <App />
-    </MemoryRouter>
-  ));
+  const renderApp = ({ path }: { path: string }) => {
+    return render((
+      <MemoryRouter initialEntries={[path]}>
+        <App />
+      </MemoryRouter>
+    ));
+  };
 
   context('with path /', () => {
     it('renders RecipesPage', () => {

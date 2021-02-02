@@ -2,18 +2,18 @@ import React from 'react';
 
 import { Route, Switch } from 'react-router-dom';
 
+import { injectGlobal } from '@emotion/css';
+import styled from '@emotion/styled';
+
 import RecipesPage from './pages/RecipesPage';
 import Recipe404Page from './pages/Recipe404Page';
 
-import { injectGlobal } from '@emotion/css'
-import styled from '@emotion/styled';
-
-injectGlobal `
-/* 
-  Origin: http://meyerweb.com/eric/tools/css/reset/ 
-  v2.0 | 20110126
-  License: none (public domain)
-*/
+injectGlobal(`
+  /* 
+    Origin: http://meyerweb.com/eric/tools/css/reset/ 
+    v2.0 | 20110126
+    License: none (public domain)
+  */
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -28,54 +28,55 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
 ol, ul {
-	list-style: none;
+  list-style: none;
 }
 blockquote, q {
-	quotes: none;
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-`
+  blockquote:before, blockquote:after,
+  q:before, q:after {
+    content: '';
+    content: none;
+  }
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+`);
 
-const Header = styled.div `
+const Header = styled.div`
   background: greenyellow;
   padding: 10px;
-	border: 3px solid rgb(50,50,40);
-`
+  border: 3px solid rgb(50,50,40);
+`;
 
-const Main = styled.div `
+const Main = styled.div`
   background: mediumseagreen;
   padding: 10px;
-	border: 3px solid rgb(50,50,40);
-`
-const Footer = styled.div `
+  border: 3px solid rgb(50,50,40);
+`;
+
+const Footer = styled.div`
   background: darkgreen;
   padding: 10px;
-	border: 3px solid rgb(50,50,40);
-`
+  border: 3px solid rgb(50,50,40);
+`;
 
 export default function App() {
   return (

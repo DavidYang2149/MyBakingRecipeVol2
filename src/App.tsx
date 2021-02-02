@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { injectGlobal } from '@emotion/css'
+import { Route, Switch } from 'react-router-dom';
 
+import RecipesPage from './pages/RecipesPage';
+import Recipe404Page from './pages/Recipe404Page';
+
+import { injectGlobal } from '@emotion/css'
 import styled from '@emotion/styled';
 
-injectGlobal`
+injectGlobal `
 /* 
   Origin: http://meyerweb.com/eric/tools/css/reset/ 
   v2.0 | 20110126
@@ -82,11 +86,10 @@ export default function App() {
         <p>Sign up</p>
       </Header>
       <Main>
-        <ul>
-          <li><button>마들렌</button></li>
-          <li><button>까눌레</button></li>
-          <li><button>크렘 브륄레</button></li>
-        </ul>
+        <Switch>
+          <Route exact path="/" component={RecipesPage} />
+          <Route component={Recipe404Page} />
+        </Switch>
       </Main>
       <Footer>
         <p>Footer</p>

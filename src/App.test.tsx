@@ -1,25 +1,30 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 
 import { render } from '@testing-library/react';
 
 import App from './App';
 
 describe('App', () => {
-  it('renders the home page', () => {
-    const { container } = render((
+  const renderApp = ({ path }: {path: string}) => render((
+    <MemoryRouter initialEntries={[path]}>
       <App />
-    ));
+    </MemoryRouter>
+  ));
 
-    expect(container).toHaveTextContent('My Baking Recipe');
+  context('with path /', () => {
+    it('renders RecipesPage', () => {
+      const { container } = renderApp({ path: '/' });
+
+      expect(container).toHaveTextContent('마들렌');
+    });
   });
 
-  context('when recipe view page', () => {
-    it('renders with recipe information', () => {
-      const { container } = render((
-        <App />
-      ));
+  context('with path /notExist', () => {
+    it('renders Recipe404Page', () => {
+      const { container } = renderApp({ path: '/notExist' });
 
-      expect(container).toHaveTextContent('레시피명');
+      expect(container).toHaveTextContent('Recipe is Not Found!');
     });
   });
 });

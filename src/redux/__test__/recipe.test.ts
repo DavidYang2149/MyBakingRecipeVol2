@@ -18,7 +18,7 @@ describe('recipe reducer', () => {
   const initialState: Recipe = {
     id: 0,
     userId: '',
-    name: '',
+    title: '',
     category: 0,
     product: 0,
     ingredients: [],
@@ -38,14 +38,14 @@ describe('recipe reducer', () => {
       const recipe: Recipe = {
         id: 1,
         userId: '1',
-        name: '마들렌',
+        title: '마들렌',
         category: 1,
         product: 16,
         ingredients: [
-          { id: 1, name: '설탕', weight: 150 },
-          { id: 2, name: '버터', weight: 150 },
-          { id: 3, name: '전란', weight: 100 },
-          { id: 4, name: '박력분', weight: 150 },
+          { id: 1, title: '설탕', weight: 150 },
+          { id: 2, title: '버터', weight: 150 },
+          { id: 3, title: '전란', weight: 100 },
+          { id: 4, title: '박력분', weight: 150 },
         ],
         description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
       };

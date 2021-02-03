@@ -3,7 +3,7 @@ import recipes from '../../fixtures/recipes';
 export type Recipe = {
   id: number;
   userId: string;
-  name: string;
+  title: string;
   category: number;
   product: number;
   ingredients: Ingredient[];
@@ -12,7 +12,7 @@ export type Recipe = {
 
 export type Ingredient = {
   id: number;
-  name: string;
+  title: string;
   weight: number;
 };
 

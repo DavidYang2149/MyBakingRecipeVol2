@@ -9,7 +9,7 @@ import {
 const initialState: Recipe = {
   id: 0,
   userId: '',
-  name: '',
+  title: '',
   category: 0,
   product: 0,
   ingredients: [],
@@ -26,6 +26,12 @@ const { actions, reducer } = createSlice({
         ...payload,
       };
     },
+    changeRecipe(state, { payload: { name, value } }) {
+      return {
+        ...state,
+        [name]: value,
+      };
+    },
   },
 });
 
@@ -39,6 +45,7 @@ export function loadRecipe(id: number) {
 
 export const {
   setRecipe,
+  changeRecipe,
 } = actions;
 
 export default reducer;

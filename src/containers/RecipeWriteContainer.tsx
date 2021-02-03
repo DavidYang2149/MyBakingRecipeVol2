@@ -1,6 +1,29 @@
 import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { changeRecipe } from '../redux/recipe';
+import { RootState } from '../redux/rootReducer';
 
 const RecipeWriteContainer = () => {
+  const dispatch = useDispatch();
+
+  const { recipe } = useSelector((state: RootState) => ({
+    recipe: state.recipe,
+  }));
+
+  const {
+    title,
+    category,
+    product,
+    ingredients,
+    description,
+  } = recipe;
+
+  const onChangeRecipe = (event: { target: HTMLInputElement; }) => {
+    const { name, value } = event.target;
+    dispatch(changeRecipe({ name, value }));
+  };
+
   return (
     <article>
       <div>
@@ -8,16 +31,22 @@ const RecipeWriteContainer = () => {
       </div>
 
       <section>
-        <label htmlFor="name">레시피명</label>
-        <input type="text" id="name" />
+        <label htmlFor="title">레시피명</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={title}
+          onChange={onChangeRecipe}
+        />
         <label htmlFor="category">카테고리</label>
-        <select id="category">
-          <option>쿠키</option>
-          <option>구움과자</option>
-          <option>케이크</option>
-          <option>빵</option>
-          <option>마카롱</option>
-          <option>기타</option>
+        <select id="category" value={category}>
+          <option value="">쿠키</option>
+          <option value="">구움과자</option>
+          <option value="">케이크</option>
+          <option value="">빵</option>
+          <option value="">마카롱</option>
+          <option value="">기타</option>
         </select>
         <label htmlFor="product">생산량</label>
         <input type="number" id="product" />

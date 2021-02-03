@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import RecipeWritePage from '../RecipeWritePage';
+import RecipeWriteContainer from '../RecipeWriteContainer';
 
-describe('ReipceWritePage', () => {
+describe('RecipeWriteContainer', () => {
   it('render Page', () => {
-    const { container } = render(<RecipeWritePage />);
+    const { container } = render(<RecipeWriteContainer />);
 
     expect(container).toHaveTextContent('레시피 작성 페이지');
   });

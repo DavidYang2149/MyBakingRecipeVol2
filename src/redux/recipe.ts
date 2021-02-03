@@ -1,7 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Dispatch } from 'react';
 
-import { Recipe, fetchRecipe } from '../services/recipes';
+import {
+  Recipe,
+  fetchRecipe,
+} from '../services/recipes';
 
 const initialState: Recipe = {
   id: 0,

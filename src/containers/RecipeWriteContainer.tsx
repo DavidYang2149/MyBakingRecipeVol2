@@ -1,8 +1,8 @@
 import React from 'react';
 
-const RecipeWritePage = () => {
+const RecipeWriteContainer = () => {
   return (
-    <>
+    <article>
       <div>
         레시피 작성 페이지
       </div>
@@ -45,15 +45,15 @@ const RecipeWritePage = () => {
       </section>
 
       <section>
-        <label htmlFor="process">만드는 방법</label>
-        <textarea id="process" />
+        <label htmlFor="description">만드는 방법</label>
+        <textarea id="description" />
       </section>
 
-      <section>
+      <div>
         <button type="button">저장하기</button>
-      </section>
-    </>
+      </div>
+    </article>
   );
 };
 
-export default RecipeWritePage;
+export default RecipeWriteContainer;

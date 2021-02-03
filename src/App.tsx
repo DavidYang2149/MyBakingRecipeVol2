@@ -6,7 +6,7 @@ import { injectGlobal } from '@emotion/css';
 import styled from '@emotion/styled';
 
 import RecipesPage from './pages/RecipesPage';
-import RecipeWritePage from './pages/RecipeWritePage';
+import RecipePage from './pages/RecipePage';
 import Recipe404Page from './pages/Recipe404Page';
 
 injectGlobal(`
@@ -92,7 +92,7 @@ export default function App() {
       <Main>
         <Switch>
           <Route exact path="/" component={RecipesPage} />
-          <Route path="/recipewrite" component={RecipeWritePage} />
+          <Route path="/recipe" component={RecipePage} />
           <Route component={Recipe404Page} />
         </Switch>
       </Main>

@@ -43,10 +43,10 @@ describe('recipe reducer', () => {
         category: 1,
         product: 16,
         ingredients: [
-          { id: 1, title: '설탕', weight: 150 },
-          { id: 2, title: '버터', weight: 150 },
-          { id: 3, title: '전란', weight: 100 },
-          { id: 4, title: '박력분', weight: 150 },
+          { id: 1, ingredient: '설탕', weight: 150 },
+          { id: 2, ingredient: '버터', weight: 150 },
+          { id: 3, ingredient: '전란', weight: 100 },
+          { id: 4, ingredient: '박력분', weight: 150 },
         ],
         description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
       };
@@ -65,10 +65,10 @@ describe('recipe reducer', () => {
       category: 1,
       product: 16,
       ingredients: [
-        { id: 1, title: '설탕', weight: 150 },
-        { id: 2, title: '버터', weight: 150 },
-        { id: 3, title: '전란', weight: 100 },
-        { id: 4, title: '박력분', weight: 150 },
+        { id: 1, ingredient: '설탕', weight: 150 },
+        { id: 2, ingredient: '버터', weight: 150 },
+        { id: 3, ingredient: '전란', weight: 100 },
+        { id: 4, ingredient: '박력분', weight: 150 },
       ],
       description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
     };
@@ -80,10 +80,10 @@ describe('recipe reducer', () => {
       category: 1,
       product: 16,
       ingredients: [
-        { id: 1, title: '설탕', weight: 150 },
-        { id: 2, title: '버터', weight: 150 },
-        { id: 3, title: '전란', weight: 100 },
-        { id: 4, title: '박력분', weight: 150 },
+        { id: 1, ingredient: '설탕', weight: 150 },
+        { id: 2, ingredient: '버터', weight: 150 },
+        { id: 3, ingredient: '전란', weight: 100 },
+        { id: 4, ingredient: '박력분', weight: 150 },
       ],
       description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
     };

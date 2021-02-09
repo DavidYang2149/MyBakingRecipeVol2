@@ -12,7 +12,7 @@ export type Recipe = {
 
 export type Ingredient = {
   id: number;
-  title: string;
+  ingredient: string;
   weight: number;
 };
 

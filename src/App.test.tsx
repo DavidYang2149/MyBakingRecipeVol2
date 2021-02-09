@@ -7,6 +7,8 @@ import App from './App';
 import { RootState } from './redux/rootReducer';
 import allConditionsState from '../fixtures/allConditionsState';
 
+jest.mock('react-redux');
+
 describe('App', () => {
   const dispatch = jest.fn();
 
@@ -19,7 +21,7 @@ describe('App', () => {
   });
 
   const renderApp = ({ path }: { path: string }) => {
-    render((
+    return render((
       <MemoryRouter initialEntries={[path]}>
         <App />
       </MemoryRouter>

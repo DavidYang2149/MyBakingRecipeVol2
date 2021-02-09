@@ -19,7 +19,17 @@ const RecipeWriteContainer = () => {
     description,
   } = recipe;
 
-  const onChangeRecipe = (event: { target: HTMLInputElement; }) => {
+  const onChangeRecipeInput = (event: { target: HTMLInputElement; }) => {
+    const { name, value } = event.target;
+    dispatch(changeRecipe({ name, value }));
+  };
+
+  const onChangeRecipeSelect = (event: { target: HTMLSelectElement; }) => {
+    const { name, value } = event.target;
+    dispatch(changeRecipe({ name, value }));
+  };
+
+  const onChangeRecipeTextArea = (event: { target: HTMLTextAreaElement; }) => {
     const { name, value } = event.target;
     dispatch(changeRecipe({ name, value }));
   };
@@ -37,19 +47,32 @@ const RecipeWriteContainer = () => {
           id="title"
           name="title"
           value={title}
-          onChange={onChangeRecipe}
+          onChange={onChangeRecipeInput}
         />
         <label htmlFor="category">카테고리</label>
-        <select id="category" value={category}>
-          <option value="">쿠키</option>
-          <option value="">구움과자</option>
-          <option value="">케이크</option>
-          <option value="">빵</option>
-          <option value="">마카롱</option>
-          <option value="">기타</option>
+        <select
+          id="category"
+          name="category"
+          value={category}
+          onBlur={onChangeRecipeSelect}
+          onChange={onChangeRecipeSelect}
+        >
+          <option value="0">선택</option>
+          <option value="1">쿠키</option>
+          <option value="2">구움과자</option>
+          <option value="3">케이크</option>
+          <option value="4">빵</option>
+          <option value="5">마카롱</option>
+          <option value="6">기타</option>
         </select>
         <label htmlFor="product">생산량</label>
-        <input type="number" id="product" />
+        <input
+          type="number"
+          id="product"
+          name="product"
+          value={product}
+          onChange={onChangeRecipeInput}
+        />
       </section>
 
       <section>
@@ -63,19 +86,42 @@ const RecipeWriteContainer = () => {
 
       <section>
         <ul>
-          <li>
-            <label htmlFor="ingredient1">재료</label>
-            <input type="text" id="ingredient1" />
-            <label htmlFor="weight1">용량</label>
-            <input type="number" id="weight1" />
-            <span>g</span>
-          </li>
+          {
+            ingredients.map(({ id, ingredient, weight }) => {
+              return (
+                <li key={id}>
+                  <label htmlFor={`ingredient${id}`}>재료</label>
+                  <input
+                    type="text"
+                    id={`ingredient${id}`}
+                    name={`ingredient${id}`}
+                    value={ingredient}
+                    onChange={onChangeRecipeInput}
+                  />
+                  <label htmlFor={`weight${id}`}>용량</label>
+                  <input
+                    type="number"
+                    id={`weight${id}`}
+                    name={`weight${id}`}
+                    value={weight}
+                    onChange={onChangeRecipeInput}
+                  />
+                  <span>g</span>
+                </li>
+              );
+            }).join('')
+          }
         </ul>
       </section>
 
       <section>
         <label htmlFor="description">만드는 방법</label>
-        <textarea id="description" />
+        <textarea
+          id="description"
+          name="description"
+          value={description}
+          onChange={onChangeRecipeTextArea}
+        />
       </section>
 
       <div>

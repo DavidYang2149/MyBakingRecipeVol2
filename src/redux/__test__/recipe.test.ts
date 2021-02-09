@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 import { Recipe } from '../../services/recipes';
 import reducer, {
   setRecipe,
+  changeRecipe,
   loadRecipe,
 } from '../recipe';
 
@@ -34,7 +35,7 @@ describe('recipe reducer', () => {
   });
 
   describe('setRecipe', () => {
-    it('change recipe', () => {
+    it('set recipe', () => {
       const recipe: Recipe = {
         id: 1,
         userId: '1',
@@ -54,6 +55,42 @@ describe('recipe reducer', () => {
 
       expect(state).toEqual(recipe);
     });
+  });
+
+  it('change recipe', () => {
+    const recipe: Recipe = {
+      id: 1,
+      userId: '1',
+      title: '마들렌',
+      category: 1,
+      product: 16,
+      ingredients: [
+        { id: 1, title: '설탕', weight: 150 },
+        { id: 2, title: '버터', weight: 150 },
+        { id: 3, title: '전란', weight: 100 },
+        { id: 4, title: '박력분', weight: 150 },
+      ],
+      description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
+    };
+
+    const resultRecipe: Recipe = {
+      id: 1,
+      userId: '1',
+      title: '맛있는마들렌',
+      category: 1,
+      product: 16,
+      ingredients: [
+        { id: 1, title: '설탕', weight: 150 },
+        { id: 2, title: '버터', weight: 150 },
+        { id: 3, title: '전란', weight: 100 },
+        { id: 4, title: '박력분', weight: 150 },
+      ],
+      description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
+    };
+
+    const state = reducer(recipe, changeRecipe({ name: 'title', value: '맛있는마들렌' }));
+
+    expect(state).toEqual(resultRecipe);
   });
 });
 

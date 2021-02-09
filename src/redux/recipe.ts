@@ -26,7 +26,7 @@ const { actions, reducer } = createSlice({
         ...payload,
       };
     },
-    changeRecipe(state, { payload: { name, value } }) {
+    changeRecipe(state, { payload: { name, value } }:PayloadAction<Record<string, string>>) {
       return {
         ...state,
         [name]: value,

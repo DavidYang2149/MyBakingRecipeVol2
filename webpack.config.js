@@ -2,6 +2,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
+const Dotenv = require('dotenv-webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const DEVELOPMENT_ENV = 'development';
@@ -62,7 +64,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/i,
         use: [
-          "style-loader",
+          mode === PRODUCTION_ENV ? MiniCssExtractPlugin.loader : "style-loader",
           "css-loader?url=false",
           "resolve-url-loader",
           "sass-loader",
@@ -79,6 +81,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: pathHtml,
+      templateParameters: {
+        env: mode === DEVELOPMENT_ENV ? '(개발모드)' : '',
+      },
     }),
     new CopyPlugin({
       patterns: mode === PRODUCTION_ENV
@@ -88,6 +93,12 @@ module.exports = {
         : [
           { from: './src/assets/images', to: './assets/images' },
         ]
+    }),
+    new Dotenv(),
+    new MiniCssExtractPlugin({
+      linkType: false,
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[id].[contenthash:8].css',
     }),
     // new BundleAnalyzerPlugin(),
   ],

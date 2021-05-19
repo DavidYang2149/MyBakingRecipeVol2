@@ -19,3 +19,9 @@ coverage
 ## Build
 dist
 build
+
+## Env
+.env
+
+## Sentry
+report.*.json

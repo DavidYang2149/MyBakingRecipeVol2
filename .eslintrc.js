@@ -89,5 +89,6 @@ module.exports = {
     ],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'max-len': ['error', { 'code': 120 }],
+    "jsx-a11y/click-events-have-key-events": 0,
   },
 };

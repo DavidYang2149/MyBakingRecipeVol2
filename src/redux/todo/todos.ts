@@ -1,5 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Dispatch } from 'react';
+import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 
 import { Todo } from 'src/types/todo';
 import { fetchTodos } from 'src/services/todo/todos';

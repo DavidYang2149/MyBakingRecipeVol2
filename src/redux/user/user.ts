@@ -1,6 +1,9 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 
 import { User } from 'src/types/user';
+import { postUserLogin, postUserLogout } from 'src/services/user/user';
+
+export type UserState = ReturnType<typeof reducer>;
 
 const initialState: User = {
   userId: '',
@@ -25,6 +28,24 @@ const { actions, reducer } = createSlice({
     },
   },
 });
+
+// XXX: When Add getState: () => UserState
+export const requestLogin = () => async (dispatch: Dispatch<PayloadAction<{ name: string, value: string }>>) => {
+  try {
+    const { user } = await postUserLogin();
+    const email = user?.email || '';
+
+    dispatch(actions.setUser({ name: 'userId', value: email }));
+  } catch (error) {
+    throw new Error((error as Error).message);
+  }
+};
+
+export const requestLogout = () => async (dispatch: Dispatch<PayloadAction<undefined>>) => {
+  await postUserLogout();
+
+  dispatch(actions.clearUser());
+};
 
 export const {
   setUser,

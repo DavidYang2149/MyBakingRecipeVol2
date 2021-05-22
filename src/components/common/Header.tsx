@@ -7,11 +7,11 @@ import './Header.scss';
 
 export type HeaderProps = {
   userId: string;
-  signInWithGoogle: () => void;
-  signOut: () => void;
+  onSignIn: () => void;
+  onSignOut: () => void;
 };
 
-const Header = ({ userId, signInWithGoogle, signOut }: HeaderProps) => {
+const Header = ({ userId, onSignIn, onSignOut }: HeaderProps) => {
   return (
     <nav className="header">
       <div>
@@ -39,7 +39,7 @@ const Header = ({ userId, signInWithGoogle, signOut }: HeaderProps) => {
               <button
                 className="headerButton"
                 type="button"
-                onClick={signOut}
+                onClick={onSignOut}
               >
                 Logout
               </button>
@@ -51,7 +51,7 @@ const Header = ({ userId, signInWithGoogle, signOut }: HeaderProps) => {
               <img
                 className="userIcon"
                 src="assets/images/close-outline.svg"
-                onClick={signOut}
+                onClick={onSignOut}
                 alt="Logout"
               />
             </div>
@@ -60,14 +60,14 @@ const Header = ({ userId, signInWithGoogle, signOut }: HeaderProps) => {
               <button
                 className="headerButton"
                 type="button"
-                onClick={signInWithGoogle}
+                onClick={onSignIn}
               >
                 Sign in (Google)
               </button>
               <img
                 className="userIcon"
                 src="assets/images/login-google.svg"
-                onClick={signInWithGoogle}
+                onClick={onSignIn}
                 alt="singIn"
               />
             </>

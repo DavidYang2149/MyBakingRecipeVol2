@@ -6,15 +6,15 @@ import { render, fireEvent } from '@testing-library/react';
 import Header from 'src/components/common/Header';
 
 describe('Header', () => {
-  const signInWithGoogle = jest.fn();
-  const signOut = jest.fn();
+  const handleSignInClick = jest.fn();
+  const handleSignOutClick = jest.fn();
 
-  const renderHeader = (user: string) => render((
+  const renderHeader = (userId: string) => render((
     <MemoryRouter>
       <Header
-        userId={user}
-        signInWithGoogle={signInWithGoogle}
-        signOut={signOut}
+        userId={userId}
+        onSignIn={handleSignInClick}
+        onSignOut={handleSignOutClick}
       />
     </MemoryRouter>
   ));

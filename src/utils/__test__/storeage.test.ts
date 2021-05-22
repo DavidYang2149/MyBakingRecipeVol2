@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/unbound-method */
 
-import { saveItem, loadItem } from 'src/utils/storage';
+import { saveItem, loadItem, removeItem } from 'src/utils/storage';
 
 describe('storage', () => {
   jest.spyOn(window.sessionStorage.__proto__, 'setItem');
   jest.spyOn(window.sessionStorage.__proto__, 'getItem');
+  jest.spyOn(window.sessionStorage.__proto__, 'removeItem');
 
   beforeEach(() => {
     Storage.prototype.setItem = jest.fn();
     Storage.prototype.getItem = jest.fn();
+    Storage.prototype.removeItem = jest.fn();
   });
 
   describe('saveItem', () => {
@@ -24,6 +26,14 @@ describe('storage', () => {
       loadItem('key');
 
       expect(sessionStorage.getItem).toBeCalledWith('key');
+    });
+  });
+
+  describe('removeItem', () => {
+    it('calls sessionStorage removeItem', () => {
+      removeItem('key');
+
+      expect(sessionStorage.removeItem).toBeCalledWith('key');
     });
   });
 });

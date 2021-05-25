@@ -8,3 +8,7 @@ export const postUserLogin = async () => {
 export const postUserLogout = async () => {
   await auth.signOut();
 };
+
+export const getCurrentUser = () => {
+  return auth.currentUser;
+};

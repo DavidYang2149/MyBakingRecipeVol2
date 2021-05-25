@@ -1,5 +1,5 @@
 import { auth } from 'src/services/firebase/firebase';
-import { postUserLogin, postUserLogout } from 'src/services/user/user';
+import { postUserLogin, postUserLogout, getCurrentUser } from 'src/services/user/user';
 
 describe('postUserLogin', () => {
   const result = {
@@ -26,5 +26,11 @@ describe('postUserLogout', () => {
 
   it('returns true after success logout', async () => {
     await postUserLogout();
+  });
+});
+
+describe('getCurrentUser', () => {
+  it('returns currentUser', () => {
+    getCurrentUser();
   });
 });

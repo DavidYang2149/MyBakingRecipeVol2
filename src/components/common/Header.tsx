@@ -32,6 +32,7 @@ const Header = ({ userId, onSignIn, onSignOut }: HeaderProps) => {
                 </Link>
               </p>
               <button
+                className="headerButton"
                 type="button"
               >
                 New Recipe

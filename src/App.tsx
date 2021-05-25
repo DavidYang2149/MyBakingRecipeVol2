@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import './App.scss';
 
-import NotFoundPage from './pages/common/NotFoundPage';
-import HelloPage from './pages/common/HelloPage';
-import TodosPage from './pages/todo/TodosPage';
+import HeaderContainer from 'src/containers/common/HeaderContainer';
+import NotFoundPage from 'src/pages/common/NotFoundPage';
+import HelloPage from 'src/pages/common/HelloPage';
+import TodosPage from 'src/pages/todo/TodosPage';
+import { requestSessionCheck } from 'src/redux/user/user';
 
-import HeaderContainer from './containers/common/HeaderContainer';
+const App = () => {
+  const dispatch = useDispatch();
 
-export default function App() {
+  useEffect(() => {
+    dispatch(requestSessionCheck());
+  }, [dispatch]);
+
   return (
     <>
       <HeaderContainer />
@@ -20,4 +27,6 @@ export default function App() {
       </Switch>
     </>
   );
-}
+};
+
+export default App;

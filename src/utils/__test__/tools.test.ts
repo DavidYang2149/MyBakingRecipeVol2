@@ -1,4 +1,8 @@
-import { isEmpty, isNotEmpty } from '../tools';
+import {
+  isEmpty,
+  isNotEmpty,
+  splitReturnFirst,
+} from 'src/utils/tools';
 
 describe('isEmpty', () => {
   context('with empty value', () => {
@@ -25,5 +29,11 @@ describe('isNotEmpty', () => {
     it('return true', () => {
       expect(isNotEmpty(1)).toBe(true);
     });
+  });
+});
+
+describe('splitReturnFirst', () => {
+  it('return first result', () => {
+    expect(splitReturnFirst('test@email.com')('@')).toBe('test');
   });
 });

@@ -3,6 +3,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { splitReturnFirst } from 'src/utils/tools';
+
 import './Header.scss';
 
 export type HeaderProps = {
@@ -28,7 +30,7 @@ const Header = ({ userId, onSignIn, onSignOut }: HeaderProps) => {
             <div className="userInfo">
               <p className="userName">
                 <Link to="/">
-                  {userId}
+                  {splitReturnFirst(userId)('@')}
                 </Link>
               </p>
               <button

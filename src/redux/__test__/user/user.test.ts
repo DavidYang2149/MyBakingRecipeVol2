@@ -8,15 +8,22 @@ import reducer, {
   clearUser,
   requestLogin,
   requestLogout,
+  requestSessionCheck,
   UserState,
 } from 'src/redux/user/user';
-import { postUserLogin, postUserLogout } from 'src/services/user/user';
+import {
+  postUserLogin,
+  postUserLogout,
+  getCurrentUser,
+} from 'src/services/user/user';
+import { loadItem } from 'src/utils/storage';
 
 const middlewares = [thunk];
 const mockStore = configureStore<UserState, ThunkDispatch<UserState, void, AnyAction>>(middlewares);
 
 // XXX: connect services user Mock
 jest.mock('src/services/user/user');
+jest.mock('src/utils/storage');
 
 describe('user reducer', () => {
   const initialState: User = {
@@ -139,6 +146,56 @@ describe('user actions', () => {
       const actions = store.getActions();
 
       expect(actions[0]).toEqual(clearUser());
+    });
+  });
+
+  describe('requestSessionCheck', () => {
+    context('with currentUser', () => {
+      it('return email saveItem & setUser', (done) => {
+        const store = mockStore({
+          userId: '',
+          displayName: '',
+        });
+
+        (getCurrentUser as jest.Mock).mockImplementation(() => ({
+          email: 'test@email.com',
+        }));
+
+        store.dispatch(requestSessionCheck());
+
+        setTimeout(() => {
+          const actions = store.getActions();
+
+          expect(actions[0]).toEqual(setUser({
+            name: 'userId',
+            value: 'test@email.com',
+          }));
+          done();
+        }, 500);
+      });
+    });
+
+    context('without currentUser', () => {
+      it('return empty setUser', (done) => {
+        const store = mockStore({
+          userId: '',
+          displayName: '',
+        });
+
+        (getCurrentUser as jest.Mock).mockImplementation(() => ({
+          user: {},
+        }));
+        (loadItem as jest.Mock).mockImplementation(() => '');
+
+        store.dispatch(requestSessionCheck());
+
+        setTimeout(() => {
+          const actions = store.getActions();
+
+          expect(actions[0]).toEqual(clearUser());
+          done();
+        }, 500);
+      });
     });
   });
 });

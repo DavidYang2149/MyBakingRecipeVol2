@@ -1,7 +1,9 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 
 import { User } from 'src/types/user';
-import { postUserLogin, postUserLogout } from 'src/services/user/user';
+import { postUserLogin, postUserLogout, getCurrentUser } from 'src/services/user/user';
+import { loadItem, removeItem, saveItem } from 'src/utils/storage';
+import { isNotEmpty } from 'src/utils/tools';
 
 export type UserState = ReturnType<typeof reducer>;
 
@@ -35,6 +37,7 @@ export const requestLogin = () => async (dispatch: Dispatch<PayloadAction<{ name
     const { user } = await postUserLogin();
     const email = user?.email || '';
 
+    saveItem('user', email);
     dispatch(actions.setUser({ name: 'userId', value: email }));
   } catch (error) {
     throw new Error((error as Error).message);
@@ -44,7 +47,24 @@ export const requestLogin = () => async (dispatch: Dispatch<PayloadAction<{ name
 export const requestLogout = () => async (dispatch: Dispatch<PayloadAction<undefined>>) => {
   await postUserLogout();
 
+  removeItem('user');
   dispatch(actions.clearUser());
+};
+
+export const requestSessionCheck = () => (
+  dispatch: Dispatch<PayloadAction<{ name: string, value: string } | undefined>>,
+) => {
+  setTimeout(() => {
+    const user = getCurrentUser();
+    const email = user?.email || loadItem('user') || '';
+
+    if (isNotEmpty(email)) {
+      saveItem('user', email);
+      dispatch(actions.setUser({ name: 'userId', value: email }));
+    } else {
+      dispatch(actions.clearUser());
+    }
+  }, 500);
 };
 
 export const {

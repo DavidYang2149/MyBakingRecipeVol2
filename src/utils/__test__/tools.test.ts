@@ -1,6 +1,8 @@
 import {
   isEmpty,
   isNotEmpty,
+  isMatch,
+  isNotMatch,
   splitReturnFirst,
 } from 'src/utils/tools';
 
@@ -28,6 +30,34 @@ describe('isNotEmpty', () => {
   context('with not empty value', () => {
     it('return true', () => {
       expect(isNotEmpty(1)).toBe(true);
+    });
+  });
+});
+
+describe('isMatch', () => {
+  context('with match value', () => {
+    it('return true', () => {
+      expect(isMatch('1')('1')).toBe(true);
+    });
+  });
+
+  context('with no match value', () => {
+    it('return false', () => {
+      expect(isMatch('1')('2')).toBe(false);
+    });
+  });
+});
+
+describe('isNotMatch', () => {
+  context('with match value', () => {
+    it('return false (reverse result)', () => {
+      expect(isNotMatch('1')('1')).toBe(false);
+    });
+  });
+
+  context('with no match value', () => {
+    it('return true (reverse result)', () => {
+      expect(isNotMatch('1')('2')).toBe(true);
     });
   });
 });

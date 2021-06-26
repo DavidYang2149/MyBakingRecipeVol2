@@ -19,3 +19,8 @@ export type Ingredient = {
   weight: number;
   ingredient: string;
 };
+
+export type Recipes = {
+  recipesBook: Recipe[] | [];
+  lastRecipe: { recipe: Recipe | null, isLast: boolean };
+};

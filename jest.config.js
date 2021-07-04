@@ -15,6 +15,6 @@ module.exports = {
   setupFiles: ['dotenv/config'],
   modulePaths: ['./'],
   moduleNameMapper: {
-    '\\.(css|less|sass|scss)$': '<rootDir>/__mocks__/styleMock.js',
+    '\\.(css|less|sass|scss)$': '<rootDir>/src/__mocks__/styleMock.js',
   }
 };

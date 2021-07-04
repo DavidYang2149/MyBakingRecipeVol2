@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import './App.scss';
 
+import Loading from 'src/components/common/Loading';
 import HeaderContainer from 'src/containers/common/HeaderContainer';
 import NotFoundPage from 'src/pages/common/NotFoundPage';
 import HelloPage from 'src/pages/common/HelloPage';
-import TodosPage from 'src/pages/todo/TodosPage';
+import RecipesPage from 'src/pages/recipe/RecipesPage';
 import { requestSessionCheck } from 'src/redux/user/user';
 
 const App = () => {
@@ -19,12 +20,16 @@ const App = () => {
 
   return (
     <>
-      <HeaderContainer />
-      <Switch>
-        <Route exact path="/" component={TodosPage} />
-        <Route exact path="/Hello" component={HelloPage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Suspense fallback={<Loading />}>
+        <HeaderContainer />
+        <div className="main">
+          <Switch>
+            <Route exact path="/" component={RecipesPage} />
+            <Route exact path="/Hello" component={HelloPage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </div>
+      </Suspense>
     </>
   );
 };

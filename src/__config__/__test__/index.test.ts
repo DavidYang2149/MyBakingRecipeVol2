@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable global-require */
 
 describe('config', () => {
@@ -16,7 +19,7 @@ describe('config', () => {
     it('production env', () => {
       process.env.NODE_ENV = 'production';
 
-      const config = require('config/index').default;
+      const config = require('src/__config__/index').default;
 
       expect(config.status).toBe('production');
     });
@@ -24,7 +27,7 @@ describe('config', () => {
     it('development env', () => {
       process.env.NODE_ENV = 'development';
 
-      const config = require('config/index').default;
+      const config = require('src/__config__/index').default;
 
       expect(config.status).toBe('development');
     });

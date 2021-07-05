@@ -1,0 +1,7 @@
+.recipeList {
+  @media (min-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -1rem;
+  }
+}

@@ -1,13 +1,11 @@
 import { combineReducers } from '@reduxjs/toolkit';
 
-import todoReducer from 'src/redux/todo/todo';
-import todosReducer from 'src/redux/todo/todos';
 import userReducer from 'src/redux/user/user';
+import recipesReducer from 'src/redux/recipe/recipes';
 
 const rootReducer = combineReducers({
-  todo: todoReducer,
-  todos: todosReducer,
   user: userReducer,
+  recipes: recipesReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

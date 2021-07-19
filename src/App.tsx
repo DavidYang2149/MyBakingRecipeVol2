@@ -7,7 +7,6 @@ import './App.scss';
 import Loading from 'src/components/common/Loading';
 import HeaderContainer from 'src/containers/common/HeaderContainer';
 import NotFoundPage from 'src/pages/common/NotFoundPage';
-import HelloPage from 'src/pages/common/HelloPage';
 import RecipesPage from 'src/pages/recipe/RecipesPage';
 import { requestSessionCheck } from 'src/redux/user/user';
 
@@ -25,7 +24,6 @@ const App = () => {
         <div className="main">
           <Switch>
             <Route exact path="/" component={RecipesPage} />
-            <Route exact path="/Hello" component={HelloPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </div>

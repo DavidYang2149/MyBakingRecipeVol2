@@ -6,8 +6,7 @@ import { render, fireEvent } from '@testing-library/react';
 import HeaderContainer from 'src/containers/common/HeaderContainer';
 import { RootState } from 'src/redux/rootReducer';
 import user from 'src/services/__mocks__/fixtures/user';
-import todo from 'src/services/__mocks__/fixtures/todo';
-import todos from 'src/services/__mocks__/fixtures/todos';
+import recipes from 'src/services/__mocks__/fixtures/recipes';
 
 jest.mock('react-redux');
 
@@ -20,8 +19,7 @@ describe('HeaderContainer', () => {
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
       user,
-      todo,
-      todos,
+      recipes,
     }));
   });
 
@@ -49,8 +47,7 @@ describe('HeaderContainer', () => {
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
       user: { userId: 'test@email.com', displayName: 'test' },
-      todo,
-      todos,
+      recipes,
     }));
 
     const { getByText } = render((

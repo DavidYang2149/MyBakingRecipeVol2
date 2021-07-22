@@ -1,15 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import { Recipe } from 'src/types/recipe';
 import { splitReturnFirst } from 'src/utils/tools';
 
 import './RecipeItem.scss';
 
-export type RecipeItemProps = {
+export interface Props {
   recipe: Recipe;
 };
 
-const RecipeItem = ({ recipe }: RecipeItemProps) => {
+const RecipeItem = ({ recipe }: Props) => {
   const {
     id, image, title, description, created, userId,
   } = recipe;

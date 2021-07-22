@@ -8,7 +8,7 @@ import './RecipeItem.scss';
 
 export interface Props {
   recipe: Recipe;
-};
+}
 
 const RecipeItem = ({ recipe }: Props) => {
   const {

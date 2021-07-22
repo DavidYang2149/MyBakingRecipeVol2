@@ -9,8 +9,6 @@ import { RootState } from 'src/redux/rootReducer';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
 import user from 'src/services/__mocks__/fixtures/user';
 
-jest.mock('react-redux');
-
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
   observe: () => null,

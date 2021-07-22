@@ -7,11 +7,11 @@ import { loadRecipes } from 'src/redux/recipe/recipes';
 
 const RecipesPage = () => {
   const dispatch = useDispatch();
-  const [target, setTarget] = useState(null);
+  const [target, setTarget] = useState<HTMLDivElement | null>(null);
 
   InfiniteScroll({
     target,
-    onIntersect: ([{ isIntersecting }]) => {
+    onIntersect: ([{ isIntersecting }]: [{ isIntersecting: unknown }]) => {
       if (isIntersecting) {
         dispatch(loadRecipes());
       }

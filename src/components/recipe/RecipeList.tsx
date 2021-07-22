@@ -6,11 +6,11 @@ import { isEmpty } from 'src/utils/tools';
 
 import './RecipeList.scss';
 
-export type RecipeListProps = {
+export interface Props {
   recipesBook: Recipe[];
-};
+}
 
-const RecipeList = ({ recipesBook }: RecipeListProps) => {
+const RecipeList = ({ recipesBook }: Props) => {
   if (isEmpty(recipesBook.length)) {
     return (
       <div>Empty</div>

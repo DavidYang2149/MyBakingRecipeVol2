@@ -3,14 +3,12 @@ import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 
 import recipes from 'src/services/__mocks__/fixtures/recipes';
-import RecipeList, { RecipeListProps } from 'src/components/recipe/RecipeList';
+import RecipeList, { Props } from 'src/components/recipe/RecipeList';
 
 describe('RecipeList', () => {
-  const renderRecipeList = ({ recipesBook }: RecipeListProps) => render((
+  const renderRecipeList = ({ recipesBook }: Props) => render((
     <MemoryRouter>
-      <RecipeList
-        recipesBook={recipesBook}
-      />
+      <RecipeList recipesBook={recipesBook} />
     </MemoryRouter>
   ));
 

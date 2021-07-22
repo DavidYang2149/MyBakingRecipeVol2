@@ -8,8 +8,6 @@ import { RootState } from 'src/redux/rootReducer';
 import user from 'src/services/__mocks__/fixtures/user';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
 
-jest.mock('react-redux');
-
 describe('HeaderContainer', () => {
   const dispatch = jest.fn();
 
@@ -23,23 +21,20 @@ describe('HeaderContainer', () => {
     }));
   });
 
+  const renderHeaderContainer = () => render((
+    <MemoryRouter>
+      <HeaderContainer />
+    </MemoryRouter>
+  ));
+
   it('renders container', () => {
-    render((
-      <MemoryRouter>
-        <HeaderContainer />
-      </MemoryRouter>
-    ));
+    renderHeaderContainer();
   });
 
   it('click sign in', () => {
-    const { getByText } = render((
-      <MemoryRouter>
-        <HeaderContainer />
-      </MemoryRouter>
-    ));
+    const { getByText } = renderHeaderContainer();
 
     fireEvent.click(getByText('Sign in (Google)'));
-
     expect(dispatch).toBeCalled();
   });
 
@@ -50,14 +45,9 @@ describe('HeaderContainer', () => {
       recipes,
     }));
 
-    const { getByText } = render((
-      <MemoryRouter>
-        <HeaderContainer />
-      </MemoryRouter>
-    ));
+    const { getByText } = renderHeaderContainer();
 
     fireEvent.click(getByText('Logout'));
-
     expect(dispatch).toBeCalled();
   });
 });

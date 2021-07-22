@@ -7,13 +7,13 @@ import { splitReturnFirst } from 'src/utils/tools';
 
 import './Header.scss';
 
-export type HeaderProps = {
+interface Props {
   userId: string;
   onSignIn: () => void;
   onSignOut: () => void;
-};
+}
 
-const Header = ({ userId, onSignIn, onSignOut }: HeaderProps) => {
+const Header = ({ userId, onSignIn, onSignOut }: Props) => {
   return (
     <nav className="header">
       <div>

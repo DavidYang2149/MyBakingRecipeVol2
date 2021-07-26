@@ -1,57 +1,41 @@
-<!doctype html><html><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><meta name="author" content="davidyang2149"><meta name="keywords" content="MyBakingRecipe, baking, recipe"><link rel="shortcut icon" href="https://davidyang2149.github.io/MyBakingRecipeVol2/static/css/assets/images/favicon.ico" type="image/x-icon"><title>My Baking Recipe Vol.2</title><style>/* 
-        Origin: http://meyerweb.com/eric/tools/css/reset/ 
-        v2.0 | 20110126
-        License: none (public domain)
-      */
-      html, body, div, span, applet, object, iframe,
-      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-      a, abbr, acronym, address, big, cite, code,
-      del, dfn, em, img, ins, kbd, q, s, samp,
-      small, strike, strong, sub, sup, tt, var,
-      b, u, i, center,
-      dl, dt, dd, ol, ul, li,
-      fieldset, form, label, legend,
-      table, caption, tbody, tfoot, thead, tr, th, td,
-      article, aside, canvas, details, embed, 
-      figure, figcaption, footer, header, hgroup, 
-      menu, nav, output, ruby, section, summary,
-      time, mark, audio, video {
-        margin: 0;
-        padding: 0;
-        border: 0;
-        font-size: 100%;
-        font: inherit;
-        vertical-align: baseline;
-      }
-      /* HTML5 display-role reset for older browsers */
-      article, aside, details, figcaption, figure, 
-      footer, header, hgroup, menu, nav, section {
-        display: block;
-      }
-      body {
-        line-height: 1;
-      }
-      ol, ul {
-        list-style: none;
-      }
-      blockquote, q {
-        quotes: none;
-      }
-      blockquote:before, blockquote:after,
-      q:before, q:after {
-        content: '';
-        content: none;
-      }
-      table {
-        border-collapse: collapse;
-        border-spacing: 0;
-      }
-      a {
-        color: #000000;
-        text-decoration: none;
-        outline: none
-      }
-      a:hover, a:active {
-        color:#000000;
-        text-decoration: none;
-      }</style><link href="./static/css/0.ef6bb610.css" rel="stylesheet"></head><body><div id="app"></div><script src="./static/js/runtime~main.0d226f50.js"></script><script src="./static/js/vendors~253ae210.22675514.js"></script><script src="./static/js/vendors~8b322766.f294688b.js"></script><script src="./static/js/vendors~7b54b6fc.ca0514b9.js"></script><script src="./static/js/vendors~74ff272b.bd33d439.js"></script><script src="./static/js/vendors~b85af4ba.0f17c80e.js"></script><script src="./static/js/vendors~8aaa0a96.1bcbafa3.js"></script><script src="./static/js/vendors~6212834c.dcb68c2c.js"></script><script src="./static/js/vendors~f9129949.e1decb9a.js"></script><script src="./static/js/vendors~7d359b94.f88df493.js"></script><script src="./static/js/vendors~678f84af.ee9051cc.js"></script><script src="./static/js/vendors~f734b0c6.56c26f28.js"></script><script src="./static/js/vendors~10e2e882.583fd9ff.js"></script><script src="./static/js/vendors~0928ebd2.6c79708b.js"></script><script src="./static/js/main.5e891e44.js"></script></body></html>
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8">
+      <title>Single Page Apps for GitHub Pages</title>
+      <script type="text/javascript">
+          // Single Page Apps for GitHub Pages
+          // https://github.com/rafrex/spa-github-pages
+          // Copyright (c) 2016 Rafael Pedicini,  licensed under the MIT License
+          //  ---------------------------------------------- ------------------------
+          // This script takes the current url and  converts the path and query
+          // string into just a query string, and then  redirects the browser
+          // to the new url with only a query string  and hash fragment,
+          // e.g. http://www.foo.tld/one/two?a=b& c=d#qwe, becomes
+          // http://www.foo.tld/?p=/one/two&  q=a=b~and~c=d#qwe
+          // Note: this 404.html file must be at least  512 bytes for it to work
+          // with Internet Explorer (it is currently >  512 bytes)
+
+          // If you're creating a Project Pages site  and NOT using a custom domain,
+          // then set segmentCount to 1 (enterprise   users may need to set it to > 1).
+          // This way the code will only replace the  route part of the path, and not
+          // the real directory in which the app  resides, for example:
+          //  https://username.github.io/repo-name/one/two?  a=b&c=d#qwe becomes
+          // https://username.github.io/repo-name/? p=/one/two&q=a=b~and~c=d#qwe
+          // Otherwise, leave segmentCount as 0.
+          var segmentCount = 1;
+
+          var l = window.location;
+          l.replace(
+              l.protocol + '//' + l.hostname + (l.port ?   ':' + l.port : '') +
+              l.pathname.split('/').slice(0, 1 +  segmentCount).join('/') + '/?p=/' +
+              l.pathname.slice(1).split('/').slice  (segmentCount).join('/').replace(/&/g,  '~and~') +
+              (l.search ? '&q=' + l.search.slice(1) .replace(/&/g, '~and~') : '') +
+              l.hash
+          );
+
+      </script>
+  </head>
+  <body>
+  </body>
+</html>

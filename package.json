@@ -11,7 +11,7 @@
     "test:unit": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint --ext ts,tsx .",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && cp public/404.html build/404.html",
     "deploy": "gh-pages -d build"
   },
   "repository": {

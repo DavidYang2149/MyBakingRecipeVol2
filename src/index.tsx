@@ -9,7 +9,7 @@ import store from './redux/store';
 ReactDOM.render(
   (
     <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter basename="/MyBakingRecipeVol2">
         <App />
       </BrowserRouter>
     </Provider>

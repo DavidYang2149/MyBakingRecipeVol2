@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import { theBaseImageURL } from 'src/utils/static';
 import { splitReturnFirst } from 'src/utils/tools';
 
 import './Header.scss';
@@ -18,7 +19,11 @@ const Header = ({ userId, onSignIn, onSignOut }: Props) => {
     <nav className="header">
       <div>
         <Link to="/">
-          <img src="assets/images/home.svg" alt="Home" className="homeImg" />
+          <img
+            className="homeImg"
+            src={`${theBaseImageURL}assets/images/home.svg`}
+            alt="Home"
+          />
         </Link>
         <Link to="/">
           <h1 className="homeH1">My Baking Recipe</h1>
@@ -48,12 +53,12 @@ const Header = ({ userId, onSignIn, onSignOut }: Props) => {
               </button>
               <img
                 className="userIcon"
-                src="assets/images/new-recipe.svg"
+                src={`${theBaseImageURL}assets/images/new-recipe.svg`}
                 alt="New Recipe"
               />
               <img
                 className="userIcon"
-                src="assets/images/close-outline.svg"
+                src={`${theBaseImageURL}assets/images/close-outline.svg`}
                 onClick={onSignOut}
                 alt="Logout"
               />
@@ -69,7 +74,7 @@ const Header = ({ userId, onSignIn, onSignOut }: Props) => {
               </button>
               <img
                 className="userIcon"
-                src="assets/images/login-google.svg"
+                src={`${theBaseImageURL}assets/images/login-google.svg`}
                 onClick={onSignIn}
                 alt="singIn"
               />

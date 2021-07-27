@@ -83,6 +83,7 @@ module.exports = {
       template: pathHtml,
       templateParameters: {
         env: mode === DEVELOPMENT_ENV ? '(개발모드)' : '',
+        imageUrl: mode === DEVELOPMENT_ENV ? 'http://localhost:9092/' : 'https://davidyang2149.github.io/MyBakingRecipeVol2/static/css/',
       },
     }),
     new CopyPlugin({

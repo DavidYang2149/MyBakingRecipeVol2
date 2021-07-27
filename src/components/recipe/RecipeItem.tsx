@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Recipe } from 'src/types/recipe';
+import { theBaseImageURL } from 'src/utils/static';
 import { splitReturnFirst } from 'src/utils/tools';
 
 import './RecipeItem.scss';
@@ -15,11 +16,19 @@ const RecipeItem = ({ recipe }: Props) => {
     id, image, title, description, created, userId,
   } = recipe;
 
+  const theDefaultImage = `${theBaseImageURL}assets/images/cookie.jpeg`;
+
   return (
     <li className="recipeItem">
       <Link to={`/recipe/${id}`}>
-        <figure className="card-image" style={{ backgroundImage: `url(${image || 'assets/images/cookie.jpeg'})` }}>
-          <img src={image || 'assets/images/cookie.jpeg'} alt="recipe" />
+        <figure
+          className="card-image"
+          style={{ backgroundImage: `url(${image || theDefaultImage})` }}
+        >
+          <img
+            src={image || theDefaultImage}
+            alt="recipe"
+          />
         </figure>
         <div className="card-desc">
           <h1>{title}</h1>

@@ -1,4 +1,4 @@
-export type Recipe = {
+export interface Recipe {
   id: string;
   userId: string;
   title: string;
@@ -12,15 +12,15 @@ export type Recipe = {
   show?: boolean;
   created?: string;
   updated?: string;
-};
+}
 
-export type Ingredient = {
+export interface Ingredient {
   id: number;
   weight: number;
   ingredient: string;
-};
+}
 
-export type Recipes = {
-  recipesBook: Recipe[] | [];
+export interface RecipesState {
+  recipesBook: Recipe[];
   lastRecipe: { recipe: Recipe | null, isLast: boolean };
-};
+}

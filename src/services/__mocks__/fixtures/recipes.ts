@@ -1,6 +1,6 @@
-import { Recipes } from 'src/types/recipe';
+import { RecipesState } from 'src/types/recipe';
 
-const recipes: Recipes = {
+const recipes: RecipesState = {
   recipesBook: [
     {
       id: '1',

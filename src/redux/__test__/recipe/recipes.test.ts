@@ -1,18 +1,28 @@
+/**
+* @jest-environment node
+*/
+// XXX: loadRecipes에 node로 설정 필요 - Firestore 오류
+
 import { AnyAction } from '@reduxjs/toolkit';
 import configureStore from 'redux-mock-store';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 
 import reducer, {
   addRecipes,
+  loadRecipes,
   RecipesReducer, setLastRecipe, setRecipes,
 } from 'src/redux/recipe/recipes';
+import { RootState } from 'src/redux/rootReducer';
+import { fetchRecipes } from 'src/services/recipe/recipes';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
+import user from 'src/services/__mocks__/fixtures/user';
 import { RecipesState } from 'src/types/recipe';
 
 const middlewares = [thunk];
-const mockStore = configureStore<RecipesReducer, ThunkDispatch<RecipesReducer, void, AnyAction>>(middlewares);
+const mockStore = configureStore<RecipesReducer | RootState, ThunkDispatch<RootState, void, AnyAction>>(middlewares);
 
 // XXX: connect services user Mock
+jest.mock('src/services/recipe/recipes');
 jest.mock('src/services/user/user');
 jest.mock('src/utils/storage');
 
@@ -89,73 +99,57 @@ describe('recipes reducer', () => {
   });
 });
 
-// describe('recipes functions', () => {
-//   describe('loadRecipes', () => {
-//     context('without Error', () => {
-//       context('with user', () => {
-//         it('runs setUser', async () => {
-//           const store = mockStore({
-//             userId: '',
-//             displayName: '',
-//           });
+describe('recipes functions', () => {
+  describe('loadRecipes', () => {
+    context('isLast true', () => {
+      it('return (nothing)', async () => {
+        const store = mockStore({
+          user,
+          recipes: {
+            recipesBook: [],
+            lastRecipe: { recipe: null, isLast: true },
+          },
+        });
 
-//           (postUserLogin as jest.Mock).mockImplementation(() => ({
-//             user: {
-//               email: 'test@test.com',
-//             },
-//           }));
+        await store.dispatch(loadRecipes());
+      });
+    });
 
-//           await store.dispatch(requestLogin());
+    context('isLast false', () => {
+      context('fetchRecipes return null', () => {
+        it('run setRecipes', async () => {
+          const store = mockStore({
+            user,
+            recipes,
+          });
+          (fetchRecipes as jest.Mock).mockImplementation(() => {
+            return null;
+          });
 
-//           const actions = store.getActions();
+          await store.dispatch(loadRecipes());
+          const actions = store.getActions();
+          expect(actions[0]).toEqual(setRecipes([]));
+        });
+      });
 
-//           expect(actions[0]).toEqual(setUser({
-//             name: 'userId',
-//             value: 'test@test.com',
-//           }));
-//         });
-//       });
+      context('fetchRecipes return values', () => {
+        // FIXED ME: 테스트 코드 수정 필요
+        it('run setRecipes', async () => {
+          const store = mockStore({
+            user,
+            recipes,
+          });
+          (fetchRecipes as jest.Mock).mockImplementation(() => {
+            return recipes.recipesBook;
+          });
 
-//       context('without user', () => {
-//         it('runs setUser', async () => {
-//           const store = mockStore({
-//             userId: '',
-//             displayName: '',
-//           });
-
-//           (postUserLogin as jest.Mock).mockImplementation(() => ({
-//             user: {},
-//           }));
-
-//           await store.dispatch(requestLogin());
-
-//           const actions = store.getActions();
-
-//           expect(actions[0]).toEqual(setUser({
-//             name: 'userId',
-//             value: '',
-//           }));
-//         });
-//       });
-//     });
-
-//     context('with Error', () => {
-//       it('requestLogin action failure to return error', async () => {
-//         const store = mockStore({
-//           userId: '',
-//           displayName: '',
-//         });
-
-//         (postUserLogin as jest.Mock).mockImplementation(() => {
-//           throw new Error('requestLogin error');
-//         });
-
-//         try {
-//           await store.dispatch(requestLogin());
-//         } catch (error) {
-//           expect(error).toEqual(new Error('requestLogin error'));
-//         }
-//       });
-//     });
-//   });
-// });
+          await store.dispatch(loadRecipes());
+          const actions = store.getActions();
+          expect(actions[0]).toEqual(setRecipes([]));
+          expect(actions[1]).toEqual(setRecipes([]));
+          expect(actions[2]).toEqual(setRecipes([]));
+        });
+      });
+    });
+  });
+});

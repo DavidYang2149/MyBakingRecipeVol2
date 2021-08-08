@@ -14,7 +14,7 @@ import reducer, {
 } from 'src/redux/recipe/recipes';
 import { RootState } from 'src/redux/rootReducer';
 import { fetchRecipes } from 'src/services/recipe/recipes';
-import recipes from 'src/services/__mocks__/fixtures/recipes';
+import recipes, { responseRecipes } from 'src/services/__mocks__/fixtures/recipes';
 import user from 'src/services/__mocks__/fixtures/user';
 import { RecipesState } from 'src/types/recipe';
 
@@ -133,21 +133,25 @@ describe('recipes functions', () => {
       });
 
       context('fetchRecipes return values', () => {
-        // FIXED ME: 테스트 코드 수정 필요
         it('run setRecipes', async () => {
           const store = mockStore({
             user,
             recipes,
           });
           (fetchRecipes as jest.Mock).mockImplementation(() => {
-            return recipes.recipesBook;
+            return responseRecipes.map((recipe) => {
+              return {
+                data: () => recipe,
+                id: recipe.id,
+              };
+            });
           });
 
           await store.dispatch(loadRecipes());
           const actions = store.getActions();
-          expect(actions[0]).toEqual(setRecipes([]));
-          expect(actions[1]).toEqual(setRecipes([]));
-          expect(actions[2]).toEqual(setRecipes([]));
+          expect(actions[0]).toEqual(addRecipes([]));
+          expect(actions[1]).toEqual(setLastRecipe({ name: 'recipe', value: recipes.recipesBook.splice(-1)[0] }));
+          expect(actions[2]).toEqual(setLastRecipe({ name: 'isLast', value: true }));
         });
       });
     });

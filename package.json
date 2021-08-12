@@ -77,7 +77,7 @@
     "puppeteer": "5.5.0",
     "redux-mock-store": "1.5.4",
     "resolve-url-loader": "3.1.4",
-    "sass": "1.32.12",
+    "sass": "1.37.5",
     "sass-loader": "10.1.1",
     "start-server-and-test": "1.12.1",
     "style-loader": "2.0.0",

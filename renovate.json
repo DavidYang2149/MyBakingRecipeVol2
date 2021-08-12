@@ -1,5 +1,10 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "labels": [":robot: Dependency"],
+  "automerge": true,
+  "major": {
+    "automerge": false
+  }
 }

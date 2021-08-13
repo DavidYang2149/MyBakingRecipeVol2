@@ -78,7 +78,7 @@
     "redux-mock-store": "1.5.4",
     "resolve-url-loader": "3.1.4",
     "sass": "1.37.5",
-    "sass-loader": "10.2.0",
+    "sass-loader": "12.1.0",
     "start-server-and-test": "1.13.1",
     "style-loader": "2.0.0",
     "ts-loader": "8.3.0",

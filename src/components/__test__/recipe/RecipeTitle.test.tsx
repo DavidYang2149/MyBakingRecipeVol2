@@ -1,10 +1,10 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
-import RecipeTitle from 'src/components/recipe/RecipeTitle';
+import RecipeTitle, { Props } from 'src/components/recipe/RecipeTitle';
 
 describe('RecipeTitle', () => {
-  const renderRecipeTitle = ({ title }: { title: string }) => render((
+  const renderRecipeTitle = ({ title }: Props) => render((
     <RecipeTitle
       title={title}
     />

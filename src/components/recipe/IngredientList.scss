@@ -1,0 +1,10 @@
+.ingredientName {
+  // display: ${(props) => props.display};
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  min-width: 100px;
+  // width: ${(props) => props.width};
+  margin: 0.125rem;
+  padding: 0.5rem;
+}

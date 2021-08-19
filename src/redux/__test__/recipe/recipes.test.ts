@@ -105,6 +105,7 @@ describe('recipes functions', () => {
       it('return (nothing)', async () => {
         const store = mockStore({
           user,
+          recipe: recipes.recipesBook[0],
           recipes: {
             recipesBook: [],
             lastRecipe: { recipe: null, isLast: true },
@@ -120,6 +121,7 @@ describe('recipes functions', () => {
         it('run setRecipes', async () => {
           const store = mockStore({
             user,
+            recipe: recipes.recipesBook[0],
             recipes,
           });
           (fetchRecipes as jest.Mock).mockImplementation(() => {
@@ -136,6 +138,7 @@ describe('recipes functions', () => {
         it('run setRecipes', async () => {
           const store = mockStore({
             user,
+            recipe: recipes.recipesBook[0],
             recipes,
           });
           (fetchRecipes as jest.Mock).mockImplementation(() => {

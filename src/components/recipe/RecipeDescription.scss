@@ -1,0 +1,43 @@
+.recipeDescription {
+  // display: ${(props) => props.display};
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  min-width: 100px;
+  // width: ${(props) => props.width};
+  margin: 0.125rem;
+  padding: 0.5rem;
+}
+
+.recipeDutyDescription {
+  // display: ${(props) => props.display};
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 700;
+  min-width: 100px;
+  // width: ${(props) => props.width};
+  margin: 0.125rem;
+  padding: 0.5rem;
+
+  :before {
+  color: #ed5464;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 5px;
+  content: '*';
+  }
+}
+
+.recipeTextarea {
+  color: #000;
+  min-width: 300px;
+  min-height: 200px;
+  width: 70%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  border: 1px solid #e5e7eb;
+  background-color: #e4e7eb;
+  margin: 0.5rem;
+  padding: 0.75rem;
+}

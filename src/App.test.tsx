@@ -8,8 +8,6 @@ import { RootState } from 'src/redux/rootReducer';
 import user from 'src/services/__mocks__/fixtures/user';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
 
-jest.mock('react-redux');
-
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
   observe: () => null,
@@ -27,6 +25,7 @@ describe('App', () => {
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
       user,
+      recipe: recipes.recipesBook[0],
       recipes,
     }));
   });
@@ -44,6 +43,14 @@ describe('App', () => {
       const { container } = await waitFor(() => renderApp({ path: '/' }));
 
       expect(container).toHaveTextContent('My Baking Recipe');
+    });
+  });
+
+  context('with path /recipe/:id', () => {
+    it('renders RecipePage', async () => {
+      const { container } = await waitFor(() => renderApp({ path: '/recipe/1' }));
+
+      expect(container).toHaveTextContent('마들렌');
     });
   });
 

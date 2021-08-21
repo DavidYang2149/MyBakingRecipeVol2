@@ -8,6 +8,8 @@
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "test": "npm run coverage && start-server-and-test start http://localhost:9092 test:e2e",
     "test:e2e": "codeceptjs run --steps",
+    "cypress": "cypress run",
+    "cypress:open": "cypress open",
     "test:unit": "jest",
     "coverage": "jest --coverage",
     "lint": "eslint --ext ts,tsx .",

@@ -34,6 +34,7 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'cypress',
   ],
   settings: {
     'import/resolver': {

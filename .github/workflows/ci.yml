@@ -19,6 +19,7 @@ jobs:
 
       - name: Create env file
         run: |
+          touch .env
           echo "FIREBASE_API_KEY=$FIREBASE_API_KEY" >> .env
           echo "FIREBASE_APP_ID=$FIREBASE_APP_ID" >> .env
           echo "FIREBASE_AUTH_DOMAIN=$FIREBASE_AUTH_DOMAIN" >> .env
@@ -29,6 +30,7 @@ jobs:
           echo "FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET" >> .env
           echo "SENTRY_DSN=$SENTRY_DSN" >> .env
           echo "GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID" >> .env
+          cat .env
         env:
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}

@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
@@ -8,6 +9,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const DEVELOPMENT_ENV = 'development';
 const PRODUCTION_ENV = 'production';
+const CICD_ENV = 'cicd';
 
 const mode = process.env.NODE_ENV || DEVELOPMENT_ENV;
 
@@ -25,10 +27,10 @@ module.exports = {
     path: pathBuild,
     filename: mode === PRODUCTION_ENV
       ? 'static/js/[name].[contenthash:8].js'
-      : mode === DEVELOPMENT_ENV && 'static/js/bundle.js',
+      : 'static/js/bundle.js',
     publicPath: mode === PRODUCTION_ENV
       ? './'
-      : mode === DEVELOPMENT_ENV && '/',
+      : '/',
   },
   optimization: {
     runtimeChunk: true,
@@ -82,8 +84,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: pathHtml,
       templateParameters: {
-        env: mode === DEVELOPMENT_ENV ? '(개발모드)' : '',
-        imageUrl: mode === DEVELOPMENT_ENV ? 'http://localhost:9092/' : 'https://davidyang2149.github.io/MyBakingRecipeVol2/static/css/',
+        env: mode === PRODUCTION_ENV ? '' : '(개발모드)',
+        imageUrl: mode === PRODUCTION_ENV ? 'https://davidyang2149.github.io/MyBakingRecipeVol2/static/css/' : 'http://localhost:9092/',
       },
     }),
     new CopyPlugin({
@@ -95,7 +97,26 @@ module.exports = {
           { from: './src/assets/images', to: './assets/images' },
         ]
     }),
-    new Dotenv(),
+    (
+      mode === CICD_ENV
+        ?
+        new webpack.DefinePlugin({
+          'process.env': {
+            FIREBASE_API_KEY: JSON.stringify(process.env.FIREBASE_API_KEY),
+            FIREBASE_APP_ID: JSON.stringify(process.env.FIREBASE_APP_ID),
+            FIREBASE_AUTH_DOMAIN: JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+            FIREBASE_DATABASE_URL: JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+            FIREBASE_MEASUREMENT_ID: JSON.stringify(process.env.FIREBASE_MEASUREMENT_ID),
+            FIREBASE_MESSAGING_SENDER_ID: JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID),
+            FIREBASE_PROJECT_ID: JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+            FIREBASE_STORAGE_BUCKET: JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
+            SENTRY_DSN: JSON.stringify(process.env.SENTRY_DSN),
+            GOOGLE_ANALYTICS_ID: JSON.stringify(process.env.GOOGLE_ANALYTICS_ID),
+          },
+        })
+        :
+        new Dotenv()
+    ),
     new MiniCssExtractPlugin({
       linkType: false,
       filename: 'static/css/[name].[contenthash:8].css',

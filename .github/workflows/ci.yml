@@ -18,20 +18,46 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          envkey_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          envkey_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-          envkey_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
-          envkey_FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
-          envkey_FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
-          envkey_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
-          envkey_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-          envkey_FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
-          envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-          envkey_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
-          file_name: .env
+      # - name: Make envfile
+      #   uses: SpicyPizza/create-envfile@v1
+      #   with:
+      #     envkey_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+      #     envkey_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+      #     envkey_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
+      #     envkey_FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+      #     envkey_FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
+      #     envkey_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+      #     envkey_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+      #     envkey_FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+      #     envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+      #     envkey_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
+      #     file_name: .env
+
+      - name: Create env file
+        run: |
+          touch .env
+          echo "FIREBASE_API_KEY=$FIREBASE_API_KEY" >> .env
+          echo "FIREBASE_APP_ID=$FIREBASE_APP_ID" >> .env
+          echo "FIREBASE_AUTH_DOMAIN=$FIREBASE_AUTH_DOMAIN" >> .env
+          echo "FIREBASE_DATABASE_URL=$FIREBASE_DATABASE_URL" >> .env
+          echo "FIREBASE_MEASUREMENT_ID=$FIREBASE_MEASUREMENT_ID" >> .env
+          echo "FIREBASE_MESSAGING_SENDER_ID=$FIREBASE_MESSAGING_SENDER_ID" >> .env
+          echo "FIREBASE_PROJECT_ID=$FIREBASE_PROJECT_ID" >> .env
+          echo "FIREBASE_STORAGE_BUCKET=$FIREBASE_STORAGE_BUCKET" >> .env
+          echo "SENTRY_DSN=$SENTRY_DSN" >> .env
+          echo "GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID" >> .env
+          cat .env
+        env:
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
+          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
+          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
 
       - name: TEST
         run: |
@@ -45,9 +71,6 @@ jobs:
 
       - name: Cypress run
         run: |
-          sudo touch .env
-          echo "TEST_SECRET=$TEST_SECRET" | base64 -d >> .env
           cat .env
           npm run test:cypress
         env:
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}  

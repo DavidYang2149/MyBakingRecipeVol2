@@ -35,7 +35,7 @@ jobs:
 
       - name: Cypress run
         run: |
-          touch .env
+          sudo touch .env
           echo "TEST_SECRET=$TEST_SECRET" | base64 -d >> .env
           cat .env
           npm run test:cypress

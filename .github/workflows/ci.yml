@@ -59,17 +59,7 @@ jobs:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
 
-      - name: TEST
-        run: |
-          pwd
-          ls -al
-          cat .env
-          echo "TEST_SECRET_NON_DECODE=$TEST_SECRET"
-          echo "TEST_SECRET=$TEST_SECRET" | base64 -d
-        env:
-          TEST_SECRET: ${{ secrets.TEST_SECRET }}  
-
       - name: Cypress run
         run: |
-          cat .env
+          ls -al
           npm run test:cypress

@@ -10,7 +10,7 @@ jobs:
   build:
     name: CI - Build & Test (Cypress)
     runs-on: ubuntu-latest
-    # environment: ci
+    environment: ci
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -32,6 +32,16 @@ jobs:
           envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           envkey_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
           file_name: .env
+
+      - name: TEST
+        run: |
+          pwd
+          ls -al
+          echo "TEST_SECRET_NON_DECODE=$TEST_SECRET"
+          echo "TEST_SECRET=$TEST_SECRET" | base64 -d
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}  
+
 
       - name: Cypress run
         run: |

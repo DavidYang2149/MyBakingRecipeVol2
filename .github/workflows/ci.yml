@@ -73,4 +73,3 @@ jobs:
         run: |
           cat .env
           npm run test:cypress
-        env:

@@ -10,7 +10,7 @@ jobs:
   build:
     name: CI - Build & Test (Cypress)
     runs-on: ubuntu-latest
-    environment: ci
+    # environment: ci
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -35,4 +35,9 @@ jobs:
 
       - name: Cypress run
         run: |
+          touch .env
+          echo "TEST_SECRET=$TEST_SECRET" | base64 -d >> .env
+          cat .env
           npm run test:cypress
+        env:
+          TEST_SECRET: ${{ secrets.TEST_SECRET }}  

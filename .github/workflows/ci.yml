@@ -18,21 +18,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      # - name: Make envfile
-      #   uses: SpicyPizza/create-envfile@v1
-      #   with:
-      #     envkey_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-      #     envkey_FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
-      #     envkey_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
-      #     envkey_FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL }}
-      #     envkey_FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
-      #     envkey_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID }}
-      #     envkey_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
-      #     envkey_FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
-      #     envkey_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
-      #     envkey_GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
-      #     file_name: .env
-
       - name: Create env file
         run: |
           touch .env

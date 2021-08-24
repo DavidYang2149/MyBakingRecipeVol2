@@ -10,6 +10,7 @@ jobs:
   build:
     name: CI - Build & Test (Cypress)
     runs-on: ubuntu-latest
+    environment: ci
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
@@ -33,4 +34,5 @@ jobs:
           file_name: .env
 
       - name: Cypress run
-        run: npm run test:cypress
+        run: |
+          npm run test:cypress

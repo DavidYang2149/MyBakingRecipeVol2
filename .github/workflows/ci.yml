@@ -37,11 +37,11 @@ jobs:
         run: |
           pwd
           ls -al
+          cat .env
           echo "TEST_SECRET_NON_DECODE=$TEST_SECRET"
           echo "TEST_SECRET=$TEST_SECRET" | base64 -d
         env:
           TEST_SECRET: ${{ secrets.TEST_SECRET }}  
-
 
       - name: Cypress run
         run: |

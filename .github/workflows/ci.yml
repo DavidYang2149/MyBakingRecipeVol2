@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: CI - Build & Test (Cypress)
+    name: CI - Unit Test & E2E Test
     runs-on: ubuntu-latest
     environment: ci
     steps:
@@ -59,7 +59,7 @@ jobs:
       - name: Unit Test
         run: npm run test:unit
 
-      - name: Cypress run
+      - name: E2E Test (Cypress run)
         uses: cypress-io/github-action@v2
         with:
           start: |

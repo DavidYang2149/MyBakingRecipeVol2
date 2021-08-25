@@ -56,6 +56,10 @@ jobs:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
 
+      - name: Unit Test
+        run: |
+        npm run test:unit
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:

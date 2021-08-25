@@ -57,8 +57,7 @@ jobs:
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
 
       - name: Unit Test
-        run: |
-        npm run test:unit
+        run: npm run test:unit
 
       - name: Cypress run
         uses: cypress-io/github-action@v2

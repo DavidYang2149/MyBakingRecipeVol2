@@ -2,9 +2,13 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - '*'
+      - '!gh-pages'   # excludes gh-pages
   pull_request:
-    branches: [ main ]
+    branches:
+      - '*'
+      - '!gh-pages'   # excludes gh-pages
 
 jobs:
   build:
@@ -15,7 +19,19 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: Cache node modules
+        id: node-cache
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
       - name: Install Dependencies
+        if: steps.node-cache.outputs.cache-hit != 'true'
         run: npm install
 
       - name: Create env file

@@ -25,10 +25,10 @@ module.exports = {
     path: pathBuild,
     filename: mode === PRODUCTION_ENV
       ? 'static/js/[name].[contenthash:8].js'
-      : mode === DEVELOPMENT_ENV && 'static/js/bundle.js',
+      : 'static/js/bundle.js',
     publicPath: mode === PRODUCTION_ENV
       ? './'
-      : mode === DEVELOPMENT_ENV && '/',
+      : '/',
   },
   optimization: {
     runtimeChunk: true,
@@ -82,8 +82,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: pathHtml,
       templateParameters: {
-        env: mode === DEVELOPMENT_ENV ? '(개발모드)' : '',
-        imageUrl: mode === DEVELOPMENT_ENV ? 'http://localhost:9092/' : 'https://davidyang2149.github.io/MyBakingRecipeVol2/static/css/',
+        env: mode === PRODUCTION_ENV ? '' : '(개발모드)',
+        imageUrl: mode === PRODUCTION_ENV ? 'https://davidyang2149.github.io/MyBakingRecipeVol2/static/css/' : 'http://localhost:9092/',
       },
     }),
     new CopyPlugin({

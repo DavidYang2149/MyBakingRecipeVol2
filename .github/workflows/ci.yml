@@ -1,4 +1,4 @@
-name: CI
+name: CI - Unit Test & E2E Test
 
 on:
   pull_request:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    name: CI - Unit Test & E2E Test
     runs-on: ubuntu-latest
     environment: ci
     steps:

@@ -1,4 +1,4 @@
-name: CI - Unit Test & E2E Test
+name: CI / Unit Test & E2E Test
 
 on:
   pull_request:

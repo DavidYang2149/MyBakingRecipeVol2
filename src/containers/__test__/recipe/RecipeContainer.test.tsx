@@ -82,7 +82,7 @@ describe('RecipeContainer', () => {
             newIngredient: { id: 0, ingredient: '', weight: 0 },
             description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
             created: '',
-            updated: '2021-07-05T05:21:34.000Z',
+            updated: '2021-07-05T14:21:34.000Z',
             show: true,
             upload: '',
             image: '',

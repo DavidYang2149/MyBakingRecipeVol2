@@ -19,8 +19,8 @@ const recipes: RecipesState = {
       ],
       newIngredient: { id: 0, ingredient: '', weight: 0 },
       description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
-      created: '2021-07-02T08:10:56.000Z',
-      updated: '2021-07-05T05:21:34.000Z',
+      created: '2021-07-02T17:10:56.000Z',
+      updated: '2021-07-05T14:21:34.000Z',
       show: true,
       upload: '',
       image: '',
@@ -29,8 +29,8 @@ const recipes: RecipesState = {
   lastRecipe: { recipe: null, isLast: false },
 };
 
-const theCreatedDate = fireStore.Timestamp.fromDate(new Date('2021-07-02 17:10:56'));
-const theUpdatedDate = fireStore.Timestamp.fromDate(new Date('2021-07-05 14:21:34'));
+const theCreatedDate = fireStore.Timestamp.fromDate(new Date('2021-07-02T17:10:56.000Z'));
+const theUpdatedDate = fireStore.Timestamp.fromDate(new Date('2021-07-05T14:21:34.000Z'));
 
 export const responseRecipes: ResponseRecipe[] = [
   {

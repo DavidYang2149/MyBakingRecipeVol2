@@ -1,4 +1,4 @@
-name: CI
+name: CI / Unit Test & E2E Test
 
 on:
   pull_request:
@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-    name: CI - Build & Test (Cypress)
     runs-on: ubuntu-latest
     environment: ci
     steps:
@@ -56,7 +55,10 @@ jobs:
           SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
           GOOGLE_ANALYTICS_ID: ${{ secrets.GOOGLE_ANALYTICS_ID }}  
 
-      - name: Cypress run
+      - name: Unit Test
+        run: npm run test:unit
+
+      - name: E2E Test (Cypress run)
         uses: cypress-io/github-action@v2
         with:
           start: |

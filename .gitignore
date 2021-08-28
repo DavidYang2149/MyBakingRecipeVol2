@@ -7,9 +7,6 @@
 ## VS Code
 .vscode
 
-## CodeceptJS
-output
-
 ## Node.js
 node_modules
 

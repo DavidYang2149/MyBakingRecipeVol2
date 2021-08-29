@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { theBaseImageURL } from 'src/utils/static';
+
 import './RecipeImage.scss';
 
 export interface Props {
@@ -7,6 +9,8 @@ export interface Props {
 }
 
 const RecipeImage = ({ image }: Props) => {
+  const theDefaultImage = `${theBaseImageURL}assets/images/cookie.jpeg`;
+
   return (
     <section>
       <div>
@@ -16,7 +20,7 @@ const RecipeImage = ({ image }: Props) => {
         >
           이미지
         </label>
-        <img id="displayImage" src={image || 'images/cookie.jpeg'} width="200px" height="200px" alt="recipe" />
+        <img id="displayImage" src={image || theDefaultImage} width="200px" height="200px" alt="recipe" />
       </div>
     </section>
   );

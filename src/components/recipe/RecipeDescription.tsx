@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './RecipeBasicInfo.scss';
+import './RecipeDescription.scss';
 
 export interface Props {
   description: string;

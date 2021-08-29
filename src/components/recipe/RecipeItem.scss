@@ -4,6 +4,13 @@
   background-color: #f8f8ef;
   border-radius: 5px;
 
+  &:hover {
+    overflow: hidden;
+    box-shadow: 0 5px 10px 0px rgba(0,0,0,0.1);
+    transform: translatey(0px);
+    animation: float 1s ease-in-out infinite;
+  }
+
   @keyframes float {
     0% {
       transform: translatey(0px);
@@ -64,11 +71,4 @@
       color: gray; 
     }
   }
-}
-
-li:hover {
-  overflow: hidden;
-  box-shadow: 0 5px 10px 0px rgba(0,0,0,0.1);
-  transform: translatey(0px);
-  animation: float 1s ease-in-out infinite;
 }

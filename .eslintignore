@@ -13,6 +13,3 @@ webpack.config.js
 ## Jest & Test Code
 jest.config.js
 jest.setup.js
-codecept.conf.js
-steps_file.js
-steps.d.ts

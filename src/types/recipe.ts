@@ -24,3 +24,13 @@ export interface RecipesState {
   recipesBook: Recipe[];
   lastRecipe: { recipe: Recipe | null, isLast: boolean };
 }
+
+export const CategoryUnionType = {
+  0: '선택',
+  1: '쿠키',
+  2: '구움과자',
+  3: '케이크',
+  4: '빵',
+  5: '마카롱',
+  6: '기타',
+};

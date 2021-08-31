@@ -30,8 +30,8 @@ const RecipeContainer = () => {
   } = recipe;
 
   const onRemove = useCallback(() => {
-    const ensure = window.confirm('레시피를 삭제하시겠습니까?');
-    if (!(ensure)) { return; }
+    const isDelete = window.confirm('레시피를 삭제하시겠습니까?');
+    if (!(isDelete)) { return; }
 
     setLoading(true);
     // await dispatch(removeFile());

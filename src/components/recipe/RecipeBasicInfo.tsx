@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { CategoryUnionType } from 'src/types/recipe';
+
 import './RecipeBasicInfo.scss';
 
 export interface Props {
@@ -14,16 +16,6 @@ export interface Props {
 const RecipeBasicInfo = ({
   title, category, product, onChange,
 }: Props) => {
-  const categoryEnum = [
-    { value: 0, text: '선택' },
-    { value: 1, text: '쿠키' },
-    { value: 2, text: '구움과자' },
-    { value: 3, text: '케이크' },
-    { value: 4, text: '빵' },
-    { value: 5, text: '마카롱' },
-    { value: 6, text: '기타' },
-  ];
-
   return (
     <section>
       {!(onChange)
@@ -105,9 +97,11 @@ const RecipeBasicInfo = ({
           disabled={!(onChange)}
         // width="30%"
         >
-          {categoryEnum.map(({ value, text }) => {
-            return (<option key={value} value={value}>{text}</option>);
-          })}
+          {
+            Object.entries(CategoryUnionType).map(([value, text]) => {
+              return (<option key={value} value={value}>{text}</option>);
+            })
+          }
         </select>
         <input
           type="number"

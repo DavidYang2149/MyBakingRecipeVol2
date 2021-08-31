@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import { Recipe } from 'src/types/recipe';
 import { theBaseImageURL } from 'src/utils/static';
-import { splitReturnFirst } from 'src/utils/tools';
 
 import './RecipeItem.scss';
 
@@ -37,7 +36,7 @@ const RecipeItem = ({ recipe }: Props) => {
           <p>
             by
             {' '}
-            <strong>{splitReturnFirst(userId)('@')}</strong>
+            <strong>{userId.split('@')[0]}</strong>
           </p>
         </div>
       </Link>

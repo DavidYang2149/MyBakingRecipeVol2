@@ -77,3 +77,5 @@ npx jest --watchAll --coverage --detectOpenHandles
 # (Require: local server online) npm run dev 
 npm run test:e2e
 ```
+
+PR을 요청 후 close시 CD가 작동하지 않는지 확인합니다.

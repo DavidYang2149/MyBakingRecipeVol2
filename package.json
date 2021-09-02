@@ -7,6 +7,7 @@
     "start": "NODE_ENV=development webpack-dev-server --mode development",
     "dev": "NODE_ENV=development webpack-dev-server --mode development",
     "build": "cross-env NODE_ENV=production webpack --mode production",
+    "build:deploy": "NODE_ENV=production webpack --mode production",
     "test": "npm run coverage && start-server-and-test start http://localhost:9092 test:e2e",
     "test:cypress": "start-server-and-test start http://localhost:9092 cypress",
     "cypress": "cypress run",

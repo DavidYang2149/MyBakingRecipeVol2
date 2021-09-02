@@ -71,7 +71,7 @@ jobs:
 
       # CD 
       - name: Production Build
-        run: npm run build
+        run: npm run build:deploy
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

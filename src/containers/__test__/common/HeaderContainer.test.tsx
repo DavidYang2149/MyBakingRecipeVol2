@@ -16,8 +16,9 @@ describe('HeaderContainer', () => {
 
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
-      user,
       recipes,
+      recipe: recipes.recipesBook[0],
+      user,
     }));
   });
 
@@ -41,8 +42,9 @@ describe('HeaderContainer', () => {
   it('click Logout', () => {
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
-      user: { userId: 'test@email.com', displayName: 'test' },
       recipes,
+      recipe: recipes.recipesBook[0],
+      user: { userId: 'test@email.com', displayName: 'test' },
     }));
 
     const { getByText } = renderHeaderContainer();

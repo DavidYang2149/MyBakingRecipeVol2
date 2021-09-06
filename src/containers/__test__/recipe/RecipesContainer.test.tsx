@@ -12,6 +12,7 @@ describe('RecipesContainer', () => {
   beforeEach(() => {
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
       recipes,
+      recipe: recipes.recipesBook[0],
       user,
     }));
   });
@@ -32,6 +33,7 @@ describe('RecipesContainer', () => {
     it('render loading', () => {
       (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
         recipes: { recipesBook: [], lastRecipe: { recipe: null, isLast: false } },
+        recipe: recipes.recipesBook[0],
         user,
       }));
 

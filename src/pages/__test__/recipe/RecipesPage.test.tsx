@@ -33,6 +33,7 @@ describe('ReipcesPage', () => {
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
       recipes,
+      recipe: recipes.recipesBook[0],
       user,
     }));
   });

@@ -1,5 +1,5 @@
 Cypress.Commands.add('loginByGoogleApi', () => {
-  cy.log('Logging in to Google')
+  cy.log('Logging in to Google');
   cy.request({
     method: 'POST',
     url: 'https://www.googleapis.com/oauth2/v4/token',
@@ -10,14 +10,14 @@ Cypress.Commands.add('loginByGoogleApi', () => {
       refresh_token: Cypress.env('googleRefreshToken'),
     },
   }).then(({ body }) => {
-    const { access_token, id_token } = body
+    const { access_token, id_token } = body;
 
     cy.request({
       method: 'GET',
       url: 'https://www.googleapis.com/oauth2/v3/userinfo',
       headers: { Authorization: `Bearer ${access_token}` },
     }).then(({ body }) => {
-      cy.log(body)
+      cy.log(body);
       const userItem = {
         token: id_token,
         user: {
@@ -27,10 +27,10 @@ Cypress.Commands.add('loginByGoogleApi', () => {
           familyName: body.family_name,
           imageUrl: body.picture,
         },
-      }
+      };
 
-      window.localStorage.setItem('googleCypress', JSON.stringify(userItem))
-      cy.visit('/')
+      window.localStorage.setItem('googleCypress', JSON.stringify(userItem));
+      cy.visit('/');
     });
   });
 });

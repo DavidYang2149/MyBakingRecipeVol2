@@ -1,5 +1,5 @@
-Cypress.Screenshot.defaults({
-  screenshotOnRunFailure: false
-});
+import './commands.js';
 
-import './commands'
+Cypress.Screenshot.defaults({
+  screenshotOnRunFailure: false,
+});

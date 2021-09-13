@@ -13,3 +13,6 @@ webpack.config.js
 ## Jest & Test Code
 jest.config.js
 jest.setup.js
+
+## Cypress
+cypress/support

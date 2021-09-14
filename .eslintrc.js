@@ -12,6 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:jsx-a11y/recommended',
     'plugin:react/recommended',
+    'plugin:cypress/recommended',
   ],
   globals: {
     Atomics: 'readonly',

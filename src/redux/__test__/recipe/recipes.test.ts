@@ -14,8 +14,8 @@ import reducer, {
 } from 'src/redux/recipe/recipes';
 import { RootState } from 'src/redux/rootReducer';
 import { fetchRecipes } from 'src/services/recipe/recipes';
+import mockState from 'src/services/__mocks__/fixtures/mockState';
 import recipes, { responseRecipes } from 'src/services/__mocks__/fixtures/recipes';
-import user from 'src/services/__mocks__/fixtures/user';
 import { RecipesState } from 'src/types/recipe';
 
 const middlewares = [thunk];
@@ -104,8 +104,7 @@ describe('recipes functions', () => {
     context('isLast true', () => {
       it('return (nothing)', async () => {
         const store = mockStore({
-          user,
-          recipe: recipes.recipesBook[0],
+          ...mockState,
           recipes: {
             recipesBook: [],
             lastRecipe: { recipe: null, isLast: true },
@@ -120,9 +119,7 @@ describe('recipes functions', () => {
       context('fetchRecipes return null', () => {
         it('run setRecipes', async () => {
           const store = mockStore({
-            user,
-            recipe: recipes.recipesBook[0],
-            recipes,
+            ...mockState,
           });
           (fetchRecipes as jest.Mock).mockImplementation(() => {
             return null;
@@ -137,9 +134,7 @@ describe('recipes functions', () => {
       context('fetchRecipes return values', () => {
         it('run setRecipes', async () => {
           const store = mockStore({
-            user,
-            recipe: recipes.recipesBook[0],
-            recipes,
+            ...mockState,
           });
           (fetchRecipes as jest.Mock).mockImplementation(() => {
             return responseRecipes.map((recipe) => {

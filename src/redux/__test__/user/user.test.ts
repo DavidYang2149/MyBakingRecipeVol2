@@ -11,15 +11,17 @@ import reducer, {
   requestSessionCheck,
   UserState,
 } from 'src/redux/user/user';
+import { RootState } from 'src/redux/rootReducer';
 import {
   postUserLogin,
   postUserLogout,
   getCurrentUser,
 } from 'src/services/user/user';
+import mockState from 'src/services/__mocks__/fixtures/mockState';
 import { loadItem } from 'src/utils/storage';
 
 const middlewares = [thunk];
-const mockStore = configureStore<UserState, ThunkDispatch<UserState, void, AnyAction>>(middlewares);
+const mockStore = configureStore<UserState | RootState, ThunkDispatch<RootState, void, AnyAction>>(middlewares);
 
 // XXX: connect services user Mock
 jest.mock('src/services/user/user');
@@ -68,8 +70,7 @@ describe('user actions', () => {
       context('with user', () => {
         it('runs setUser', async () => {
           const store = mockStore({
-            userId: '',
-            displayName: '',
+            ...mockState,
           });
 
           (postUserLogin as jest.Mock).mockImplementation(() => ({
@@ -92,8 +93,7 @@ describe('user actions', () => {
       context('without user', () => {
         it('runs setUser', async () => {
           const store = mockStore({
-            userId: '',
-            displayName: '',
+            ...mockState,
           });
 
           (postUserLogin as jest.Mock).mockImplementation(() => ({
@@ -115,8 +115,7 @@ describe('user actions', () => {
     context('with Error', () => {
       it('requestLogin action failure to return error', async () => {
         const store = mockStore({
-          userId: '',
-          displayName: '',
+          ...mockState,
         });
 
         (postUserLogin as jest.Mock).mockImplementation(() => {
@@ -135,8 +134,7 @@ describe('user actions', () => {
   describe('requestLogout', () => {
     it('runs clearUser', async () => {
       const store = mockStore({
-        userId: '',
-        displayName: '',
+        ...mockState,
       });
 
       (postUserLogout as jest.Mock).mockImplementation(() => ({}));
@@ -153,8 +151,7 @@ describe('user actions', () => {
     context('with currentUser', () => {
       it('return email saveItem & setUser', (done) => {
         const store = mockStore({
-          userId: '',
-          displayName: '',
+          ...mockState,
         });
 
         (getCurrentUser as jest.Mock).mockImplementation(() => ({
@@ -178,8 +175,7 @@ describe('user actions', () => {
     context('without currentUser', () => {
       it('return empty setUser', (done) => {
         const store = mockStore({
-          userId: '',
-          displayName: '',
+          ...mockState,
         });
 
         (getCurrentUser as jest.Mock).mockImplementation(() => ({

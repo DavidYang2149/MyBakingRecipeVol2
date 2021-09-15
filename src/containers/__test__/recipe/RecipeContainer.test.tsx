@@ -6,7 +6,7 @@ import { render, fireEvent } from '@testing-library/react';
 import RecipeContainer from 'src/containers/recipe/RecipeContainer';
 import { RootState } from 'src/redux/rootReducer';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
-import user from 'src/services/__mocks__/fixtures/user';
+import mockState from 'src/services/__mocks__/fixtures/mockState';
 
 describe('RecipeContainer', () => {
   const dispatch = jest.fn();
@@ -16,9 +16,7 @@ describe('RecipeContainer', () => {
 
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
-      user,
-      recipe: recipes.recipesBook[0],
-      recipes,
+      ...mockState,
     }));
   });
 
@@ -47,9 +45,8 @@ describe('RecipeContainer', () => {
         };
 
         (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
-          user,
+          ...mockState,
           recipe: empty,
-          recipes,
         }));
 
         render((
@@ -63,6 +60,7 @@ describe('RecipeContainer', () => {
     context('with exist recipe', () => {
       it('click onSubmit', () => {
         (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+          ...mockState,
           user: {
             userId: '1',
             displayName: '테스트유저1',
@@ -87,7 +85,6 @@ describe('RecipeContainer', () => {
             upload: '',
             image: '',
           },
-          recipes,
         }));
 
         const { getByText } = render((
@@ -105,12 +102,12 @@ describe('RecipeContainer', () => {
     context('with confirm true', () => {
       it('click onRemove', () => {
         (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+          ...mockState,
           user: {
             userId: '1',
             displayName: '테스트유저1',
           },
           recipe: recipes.recipesBook[0],
-          recipes,
         }));
         global.confirm = () => true;
 
@@ -131,12 +128,12 @@ describe('RecipeContainer', () => {
     context('with confirm false', () => {
       it('click onRemove', () => {
         (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+          ...mockState,
           user: {
             userId: '1',
             displayName: '테스트유저1',
           },
           recipe: recipes.recipesBook[0],
-          recipes,
         }));
         global.confirm = () => false;
 

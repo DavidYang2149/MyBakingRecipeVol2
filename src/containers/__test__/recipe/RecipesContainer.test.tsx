@@ -5,15 +5,12 @@ import { render } from '@testing-library/react';
 
 import RecipesContainer from 'src/containers/recipe/RecipesContainer';
 import { RootState } from 'src/redux/rootReducer';
-import recipes from 'src/services/__mocks__/fixtures/recipes';
-import user from 'src/services/__mocks__/fixtures/user';
+import mockState from 'src/services/__mocks__/fixtures/mockState';
 
 describe('RecipesContainer', () => {
   beforeEach(() => {
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
-      recipes,
-      recipe: recipes.recipesBook[0],
-      user,
+      ...mockState,
     }));
   });
 
@@ -32,9 +29,8 @@ describe('RecipesContainer', () => {
   context('without recipes', () => {
     it('render loading', () => {
       (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+        ...mockState,
         recipes: { recipesBook: [], lastRecipe: { recipe: null, isLast: false } },
-        recipe: recipes.recipesBook[0],
-        user,
       }));
 
       renderRecipesContainer();

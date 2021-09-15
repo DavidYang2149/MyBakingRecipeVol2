@@ -5,8 +5,7 @@ import { render, waitFor } from '@testing-library/react';
 
 import App from 'src/App';
 import { RootState } from 'src/redux/rootReducer';
-import user from 'src/services/__mocks__/fixtures/user';
-import recipes from 'src/services/__mocks__/fixtures/recipes';
+import mockState from 'src/services/__mocks__/fixtures/mockState';
 
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
@@ -24,9 +23,7 @@ describe('App', () => {
 
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
     (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
-      user,
-      recipe: recipes.recipesBook[0],
-      recipes,
+      ...mockState,
     }));
   });
 

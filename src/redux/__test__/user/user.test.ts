@@ -73,7 +73,7 @@ describe('user actions', () => {
             ...mockState,
           });
 
-          (postUserLogin as jest.Mock).mockImplementation(() => ({
+          (postUserLogin as jest.Mock).mockImplementationOnce(() => ({
             user: {
               email: 'test@test.com',
             },
@@ -96,7 +96,7 @@ describe('user actions', () => {
             ...mockState,
           });
 
-          (postUserLogin as jest.Mock).mockImplementation(() => ({
+          (postUserLogin as jest.Mock).mockImplementationOnce(() => ({
             user: {},
           }));
 
@@ -118,7 +118,7 @@ describe('user actions', () => {
           ...mockState,
         });
 
-        (postUserLogin as jest.Mock).mockImplementation(() => {
+        (postUserLogin as jest.Mock).mockImplementationOnce(() => {
           throw new Error('requestLogin error');
         });
 
@@ -137,7 +137,7 @@ describe('user actions', () => {
         ...mockState,
       });
 
-      (postUserLogout as jest.Mock).mockImplementation(() => ({}));
+      (postUserLogout as jest.Mock).mockImplementationOnce(() => ({}));
 
       await store.dispatch(requestLogout());
 
@@ -154,7 +154,7 @@ describe('user actions', () => {
           ...mockState,
         });
 
-        (getCurrentUser as jest.Mock).mockImplementation(() => ({
+        (getCurrentUser as jest.Mock).mockImplementationOnce(() => ({
           email: 'test@email.com',
         }));
 
@@ -178,10 +178,10 @@ describe('user actions', () => {
           ...mockState,
         });
 
-        (getCurrentUser as jest.Mock).mockImplementation(() => ({
+        (getCurrentUser as jest.Mock).mockImplementationOnce(() => ({
           user: {},
         }));
-        (loadItem as jest.Mock).mockImplementation(() => '');
+        (loadItem as jest.Mock).mockImplementationOnce(() => '');
 
         store.dispatch(requestSessionCheck());
 

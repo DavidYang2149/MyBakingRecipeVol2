@@ -121,7 +121,7 @@ describe('recipes functions', () => {
           const store = mockStore({
             ...mockState,
           });
-          (fetchRecipes as jest.Mock).mockImplementation(() => {
+          (fetchRecipes as jest.Mock).mockImplementationOnce(() => {
             return null;
           });
 
@@ -136,7 +136,7 @@ describe('recipes functions', () => {
           const store = mockStore({
             ...mockState,
           });
-          (fetchRecipes as jest.Mock).mockImplementation(() => {
+          (fetchRecipes as jest.Mock).mockImplementationOnce(() => {
             return responseRecipes.map((recipe) => {
               return {
                 data: () => recipe,

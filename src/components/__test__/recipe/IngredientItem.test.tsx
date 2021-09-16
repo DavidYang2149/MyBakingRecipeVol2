@@ -22,52 +22,50 @@ describe('IngredientItem', () => {
     />
   ));
 
-  context('with provided', () => {
-    const provided = {
-      draggableProps: {
-        style: {},
-        'data-rbd-draggable-context-id': '',
-        'data-rbd-draggable-id': '',
-      },
-      dragHandleProps: {
-        'data-rbd-drag-handle-draggable-id': '',
-        'data-rbd-drag-handle-context-id': '',
-        'aria-describedby': '',
-        role: '',
-        tabIndex: 0,
-        draggable: true,
-        onDragStart: jest.fn(),
-      },
-      innerRef: jest.fn(),
-    };
+  const mockIngredient = { id: 1, ingredient: '박력분', weight: 100 };
 
+  context('with provided', () => {
     it('render values', () => {
-      const ingredient = { id: 1, ingredient: '박력분', weight: 100 };
+      const mockProvided = {
+        draggableProps: {
+          style: {},
+          'data-rbd-draggable-context-id': '',
+          'data-rbd-draggable-id': '',
+        },
+        dragHandleProps: {
+          'data-rbd-drag-handle-draggable-id': '',
+          'data-rbd-drag-handle-context-id': '',
+          'aria-describedby': '',
+          role: '',
+          tabIndex: 0,
+          draggable: true,
+          onDragStart: jest.fn(),
+        },
+        innerRef: jest.fn(),
+      };
 
       const { getByDisplayValue } = renderIngredientItem({
-        ...ingredient,
+        ...mockIngredient,
         onChangeIngredient: onChange,
         onRemoveIngredient: onChange,
-        provided,
+        provided: mockProvided,
       });
 
-      expect(getByDisplayValue('박력분')).toHaveValue(ingredient.ingredient);
-      expect(getByDisplayValue('100')).toHaveValue(ingredient.weight);
+      expect(getByDisplayValue('박력분')).toHaveValue(mockIngredient.ingredient);
+      expect(getByDisplayValue('100')).toHaveValue(mockIngredient.weight);
     });
   });
 
   context('without provided', () => {
     it('render values', () => {
-      const ingredient = { id: 1, ingredient: '박력분', weight: 100 };
-
       const { getByDisplayValue } = renderIngredientItem({
-        ...ingredient,
+        ...mockIngredient,
         onChangeIngredient: onChange,
         onRemoveIngredient: onChange,
       });
 
-      expect(getByDisplayValue('박력분')).toHaveValue(ingredient.ingredient);
-      expect(getByDisplayValue('100')).toHaveValue(ingredient.weight);
+      expect(getByDisplayValue('박력분')).toHaveValue(mockIngredient.ingredient);
+      expect(getByDisplayValue('100')).toHaveValue(mockIngredient.weight);
     });
   });
 });

@@ -20,7 +20,7 @@ describe('IngredientList', () => {
     />
   ));
 
-  const ingredients = [
+  const mockIngredients = [
     { id: 1, ingredient: '설탕', weight: 150 },
     { id: 2, ingredient: '버터', weight: 150 },
     { id: 3, ingredient: '전란', weight: 100 },
@@ -30,7 +30,7 @@ describe('IngredientList', () => {
   context('with onDragEndIngredient', () => {
     it('render values', () => {
       const { container, getByDisplayValue } = renderIngredientList({
-        ingredients,
+        ingredients: mockIngredients,
         onChangeIngredient: onChange,
         onRemoveIngredient: onChange,
         onDragEndIngredient: onChange,
@@ -44,7 +44,7 @@ describe('IngredientList', () => {
 
   context('without onDragEndIngredient', () => {
     it('render values', () => {
-      const { container, getByDisplayValue } = renderIngredientList({ ingredients });
+      const { container, getByDisplayValue } = renderIngredientList({ ingredients: mockIngredients });
 
       expect(container).toHaveTextContent('원재료');
       expect(getByDisplayValue('설탕')).toHaveValue('설탕');

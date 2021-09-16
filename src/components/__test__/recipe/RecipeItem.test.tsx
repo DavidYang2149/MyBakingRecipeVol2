@@ -15,7 +15,7 @@ describe('RecipeItem', () => {
 
   context('with recipe', () => {
     it('render RecipeItem', () => {
-      const theMockRecipe = {
+      const mockRecipe = {
         id: 'a1',
         image: '',
         title: '초코칩쿠키',
@@ -27,7 +27,7 @@ describe('RecipeItem', () => {
         ingredients: [],
         upload: '',
       };
-      const { container } = renderBlockItem({ recipe: theMockRecipe });
+      const { container } = renderBlockItem({ recipe: mockRecipe });
 
       expect(container).toHaveTextContent('초코칩쿠키');
       expect(container).toHaveTextContent('test');
@@ -39,13 +39,13 @@ describe('RecipeItem', () => {
 
   context('with recipe', () => {
     it('render RecipeItem cut down description', () => {
-      const the30Letters = '초코칩 쿠키 만들기를 제작해봅시다. 첫 번째 초코칩 쿠';
-      const theOver30Letters = `${the30Letters}키를 잘게 다진다. 두 번째 설탕을 넣는다.`;
-      const theMockRecipe = {
+      const char30 = '초코칩 쿠키 만들기를 제작해봅시다. 첫 번째 초코칩 쿠';
+      const mockDescription = `${char30}키를 잘게 다진다. 두 번째 설탕을 넣는다.`;
+      const mockRecipe = {
         id: 'a1',
         image: '',
         title: '초코칩쿠키',
-        description: theOver30Letters,
+        description: mockDescription,
         created: '2021-07-02-18:10:12',
         userId: 'test@email.com',
         product: 10,
@@ -53,13 +53,13 @@ describe('RecipeItem', () => {
         ingredients: [],
         upload: '',
       };
-      const { container } = renderBlockItem({ recipe: theMockRecipe });
+      const { container } = renderBlockItem({ recipe: mockRecipe });
 
       expect(container).toHaveTextContent('초코칩쿠키');
       expect(container).toHaveTextContent('test');
       expect(container).not.toHaveTextContent('test@email.com');
 
-      expect(container).toHaveTextContent('초코칩 쿠키 만들기를 제작해봅시다. 첫 번째 초코칩 쿠...');
+      expect(container).toHaveTextContent(`${char30}...`);
     });
   });
 });

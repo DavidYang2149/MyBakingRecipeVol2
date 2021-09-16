@@ -99,7 +99,7 @@ describe('recipe functions', () => {
             lastRecipe: { recipe: null, isLast: true },
           },
         });
-        (fetchRecipe as jest.Mock).mockImplementation(() => {
+        (fetchRecipe as jest.Mock).mockImplementationOnce(() => {
           return { exists: false };
         });
 
@@ -112,7 +112,7 @@ describe('recipe functions', () => {
         const store = mockStore({
           ...mockState,
         });
-        (fetchRecipe as jest.Mock).mockImplementation(() => {
+        (fetchRecipe as jest.Mock).mockImplementationOnce(() => {
           return {
             exists: true,
             data: () => responseRecipes[0],

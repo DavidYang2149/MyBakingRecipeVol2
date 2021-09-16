@@ -28,7 +28,7 @@ describe('RecipesContainer', () => {
 
   context('without recipes', () => {
     it('render loading', () => {
-      (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+      (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
         ...mockState,
         recipes: { recipesBook: [], lastRecipe: { recipe: null, isLast: false } },
       }));

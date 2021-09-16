@@ -37,8 +37,7 @@ describe('HeaderContainer', () => {
   });
 
   it('click Logout', () => {
-    (useDispatch as jest.Mock).mockImplementation(() => dispatch);
-    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+    (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
       ...mockState,
       user: { userId: 'test@email.com', displayName: 'test' },
     }));

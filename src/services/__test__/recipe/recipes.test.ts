@@ -58,26 +58,12 @@ describe('fetchRecipes', () => {
         const orderBy = jest.fn(() => ({ startAfter }));
         jest.spyOn(db, 'collection').mockReturnValue((({ orderBy } as unknown) as any));
 
-        const theMockRecipe = {
-          id: '1',
-          userId: '1',
-          title: '마들렌',
-          category: 1,
-          product: 16,
-          ingredients: [
-            { id: 1, ingredient: '설탕', weight: 150 },
-            { id: 2, ingredient: '버터', weight: 150 },
-            { id: 3, ingredient: '전란', weight: 100 },
-            { id: 4, ingredient: '박력분', weight: 150 },
-          ],
-          newIngredient: { id: 0, ingredient: '', weight: 0 },
-          description: '마들렌 만드는 방법. 오븐 180도에 10분간 굽기',
-          show: true,
-          upload: '',
-          image: '',
+        const mockRecipe = {
+          ...recipes.recipesBook[0],
+          created: '',
         };
 
-        const result = await fetchRecipes(theMockRecipe);
+        const result = await fetchRecipes(mockRecipe);
 
         expect(result).toEqual(responseRecipes);
       });

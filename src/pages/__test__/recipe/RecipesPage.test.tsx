@@ -15,15 +15,10 @@ import { RootState } from 'src/redux/rootReducer';
 import mockState, {
   mockUseDispatch,
   mockUseSelector,
+  setMockIntersectionObserver,
 } from 'src/services/__mocks__/fixtures/mockTools';
 
-const mockIntersectionObserver = jest.fn();
-mockIntersectionObserver.mockReturnValue({
-  observe: () => null,
-  unobserve: () => null,
-  disconnect: () => null,
-});
-window.IntersectionObserver = mockIntersectionObserver;
+setMockIntersectionObserver();
 
 describe('ReipcesPage', () => {
   const dispatch = jest.fn();

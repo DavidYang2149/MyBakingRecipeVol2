@@ -10,12 +10,13 @@ import mockState from 'src/services/__mocks__/fixtures/mockState';
 
 describe('RecipeContainer', () => {
   const dispatch = jest.fn();
+  const mockUseSelector = useSelector as jest.Mock;
 
   beforeEach(() => {
     dispatch.mockClear();
 
     (useDispatch as jest.Mock).mockImplementation(() => dispatch);
-    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+    mockUseSelector.mockImplementation((selector: (arg: RootState) => void) => selector({
       ...mockState,
     }));
   });
@@ -49,7 +50,7 @@ describe('RecipeContainer', () => {
           image: null,
         };
 
-        (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
+        mockUseSelector.mockImplementationOnce((selector: (arg: RootState) => void) => selector({
           ...mockState,
           recipe: initialRecipe,
         }));
@@ -64,7 +65,7 @@ describe('RecipeContainer', () => {
 
     context('with exist recipe', () => {
       it('click onSubmit', () => {
-        (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
+        mockUseSelector.mockImplementationOnce((selector: (arg: RootState) => void) => selector({
           ...mockState,
           user: mockUser,
           recipe: {
@@ -87,7 +88,7 @@ describe('RecipeContainer', () => {
 
     context('with confirm true', () => {
       it('click onRemove', () => {
-        (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
+        mockUseSelector.mockImplementationOnce((selector: (arg: RootState) => void) => selector({
           ...mockState,
           user: mockUser,
         }));
@@ -109,7 +110,7 @@ describe('RecipeContainer', () => {
 
     context('with confirm false', () => {
       it('click onRemove', () => {
-        (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
+        mockUseSelector.mockImplementationOnce((selector: (arg: RootState) => void) => selector({
           ...mockState,
           user: mockUser,
         }));

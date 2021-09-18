@@ -1,11 +1,13 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import RecipePage from 'src/pages/recipe/RecipePage';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockTools';
+import mockState, {
+  mockUseDispatch,
+  mockUseSelector,
+} from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('RecipePage', () => {
   const dispatch = jest.fn();
@@ -13,8 +15,8 @@ describe('RecipePage', () => {
   beforeEach(() => {
     dispatch.mockClear();
 
-    (useDispatch as jest.Mock).mockImplementation(() => dispatch);
-    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+    mockUseDispatch.mockImplementation(() => dispatch);
+    mockUseSelector.mockImplementation((selector: (arg: RootState) => void) => selector({
       ...mockState,
     }));
   });

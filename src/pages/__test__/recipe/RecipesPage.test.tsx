@@ -8,12 +8,14 @@
 
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import ReipcesPage from 'src/pages/recipe/RecipesPage';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockTools';
+import mockState, {
+  mockUseDispatch,
+  mockUseSelector,
+} from 'src/services/__mocks__/fixtures/mockTools';
 
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
@@ -29,8 +31,8 @@ describe('ReipcesPage', () => {
   beforeEach(() => {
     dispatch.mockClear();
 
-    (useDispatch as jest.Mock).mockImplementation(() => dispatch);
-    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+    mockUseDispatch.mockImplementation(() => dispatch);
+    mockUseSelector.mockImplementation((selector: (arg: RootState) => void) => selector({
       ...mockState,
     }));
   });

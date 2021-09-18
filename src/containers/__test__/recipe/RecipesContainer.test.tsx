@@ -1,15 +1,14 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import { render } from '@testing-library/react';
 
 import RecipesContainer from 'src/containers/recipe/RecipesContainer';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockTools';
+import mockState, { mockUseSelector } from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('RecipesContainer', () => {
   beforeEach(() => {
-    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+    mockUseSelector.mockImplementation((selector: (arg: RootState) => void) => selector({
       ...mockState,
     }));
   });
@@ -28,7 +27,7 @@ describe('RecipesContainer', () => {
 
   context('without recipes', () => {
     it('render loading', () => {
-      (useSelector as jest.Mock).mockImplementationOnce((selector: (arg: RootState) => void) => selector({
+      mockUseSelector.mockImplementationOnce((selector: (arg: RootState) => void) => selector({
         ...mockState,
         recipes: { recipesBook: [], lastRecipe: { recipe: null, isLast: false } },
       }));

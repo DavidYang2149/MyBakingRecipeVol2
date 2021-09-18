@@ -1,21 +1,19 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { render, fireEvent } from '@testing-library/react';
 
 import RecipeContainer from 'src/containers/recipe/RecipeContainer';
 import { RootState } from 'src/redux/rootReducer';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
-import mockState from 'src/services/__mocks__/fixtures/mockTools';
+import mockState, { mockUseDispatch, mockUseSelector } from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('RecipeContainer', () => {
   const dispatch = jest.fn();
-  const mockUseSelector = useSelector as jest.Mock;
 
   beforeEach(() => {
     dispatch.mockClear();
 
-    (useDispatch as jest.Mock).mockImplementation(() => dispatch);
+    mockUseDispatch.mockImplementation(() => dispatch);
     mockUseSelector.mockImplementation((selector: (arg: RootState) => void) => selector({
       ...mockState,
     }));

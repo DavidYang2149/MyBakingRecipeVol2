@@ -32,8 +32,8 @@ describe('App', () => {
     ));
   };
 
-  context('with path /', () => {
-    it('renders RecipesPage', async () => {
+  context('with path default', () => {
+    it('renders DefaultPage', async () => {
       const { container } = await waitFor(() => renderApp({ path: '/' }));
 
       expect(container).toHaveTextContent('My Baking Recipe');

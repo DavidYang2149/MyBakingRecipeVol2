@@ -1,19 +1,16 @@
 import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import { render, waitFor } from '@testing-library/react';
 
 import App from 'src/App';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState, {
+  mockUseDispatch,
+  mockUseSelector,
+  setMockIntersectionObserver,
+} from 'src/services/__mocks__/fixtures/mockTools';
 
-const mockIntersectionObserver = jest.fn();
-mockIntersectionObserver.mockReturnValue({
-  observe: () => null,
-  unobserve: () => null,
-  disconnect: () => null,
-});
-window.IntersectionObserver = mockIntersectionObserver;
+setMockIntersectionObserver();
 
 describe('App', () => {
   const dispatch = jest.fn();
@@ -21,8 +18,8 @@ describe('App', () => {
   beforeEach(() => {
     dispatch.mockClear();
 
-    (useDispatch as jest.Mock).mockImplementation(() => dispatch);
-    (useSelector as jest.Mock).mockImplementation((selector: (arg: RootState) => void) => selector({
+    mockUseDispatch.mockImplementation(() => dispatch);
+    mockUseSelector.mockImplementation((selector: (arg: RootState) => void) => selector({
       ...mockState,
     }));
   });

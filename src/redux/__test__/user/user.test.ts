@@ -17,7 +17,7 @@ import {
   postUserLogout,
   getCurrentUser,
 } from 'src/services/user/user';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 import { loadItem } from 'src/utils/storage';
 
 const middlewares = [thunk];

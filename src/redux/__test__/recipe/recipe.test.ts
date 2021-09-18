@@ -14,7 +14,7 @@ import reducer, {
 } from 'src/redux/recipe/recipe';
 import { RootState } from 'src/redux/rootReducer';
 import { fetchRecipe } from 'src/services/recipe/recipes';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 import recipes, { responseRecipes } from 'src/services/__mocks__/fixtures/recipes';
 import { Recipe as RecipeState } from 'src/types/recipe';
 

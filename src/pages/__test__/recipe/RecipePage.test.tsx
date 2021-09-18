@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 
 import RecipePage from 'src/pages/recipe/RecipePage';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('RecipePage', () => {
   const dispatch = jest.fn();

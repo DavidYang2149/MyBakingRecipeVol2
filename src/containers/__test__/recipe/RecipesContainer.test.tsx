@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 
 import RecipesContainer from 'src/containers/recipe/RecipesContainer';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('RecipesContainer', () => {
   beforeEach(() => {

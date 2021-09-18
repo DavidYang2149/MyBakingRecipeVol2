@@ -13,7 +13,7 @@ import { render } from '@testing-library/react';
 
 import ReipcesPage from 'src/pages/recipe/RecipesPage';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({

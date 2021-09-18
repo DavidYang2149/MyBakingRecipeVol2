@@ -5,7 +5,7 @@ import { render, fireEvent } from '@testing-library/react';
 
 import HeaderContainer from 'src/containers/common/HeaderContainer';
 import { RootState } from 'src/redux/rootReducer';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('HeaderContainer', () => {
   const dispatch = jest.fn();

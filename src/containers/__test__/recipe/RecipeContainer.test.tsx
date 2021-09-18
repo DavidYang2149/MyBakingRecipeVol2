@@ -6,7 +6,7 @@ import { render, fireEvent } from '@testing-library/react';
 import RecipeContainer from 'src/containers/recipe/RecipeContainer';
 import { RootState } from 'src/redux/rootReducer';
 import recipes from 'src/services/__mocks__/fixtures/recipes';
-import mockState from 'src/services/__mocks__/fixtures/mockState';
+import mockState from 'src/services/__mocks__/fixtures/mockTools';
 
 describe('RecipeContainer', () => {
   const dispatch = jest.fn();

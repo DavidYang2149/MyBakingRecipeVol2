@@ -13,4 +13,14 @@ export const mockUseDispatch = useDispatch as jest.Mock;
 
 export const mockUseSelector = useSelector as jest.Mock;
 
+export const setMockIntersectionObserver = () => {
+  const mockIntersectionObserver = jest.fn();
+  mockIntersectionObserver.mockReturnValue({
+    observe: () => null,
+    unobserve: () => null,
+    disconnect: () => null,
+  });
+  window.IntersectionObserver = mockIntersectionObserver;
+};
+
 export default mockState;

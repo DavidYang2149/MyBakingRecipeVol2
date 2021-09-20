@@ -31,10 +31,11 @@ describe('App', () => {
       </MemoryRouter>
     ));
   };
+  const waitForWithPath = (path: string) => waitFor(() => renderApp({ path }));
 
-  context('with path /', () => {
-    it('renders RecipesPage', async () => {
-      const { container } = await waitFor(() => renderApp({ path: '/' }));
+  context('with path default', () => {
+    it('renders DefaultPage', async () => {
+      const { container } = await waitForWithPath('/');
 
       expect(container).toHaveTextContent('My Baking Recipe');
     });
@@ -42,7 +43,7 @@ describe('App', () => {
 
   context('with path /recipe/:id', () => {
     it('renders RecipePage', async () => {
-      const { container } = await waitFor(() => renderApp({ path: '/recipe/1' }));
+      const { container } = await waitForWithPath('/recipe/1');
 
       expect(container).toHaveTextContent('마들렌');
     });
@@ -50,7 +51,7 @@ describe('App', () => {
 
   context('with path /notExist', () => {
     it('renders Recipe404Page', async () => {
-      const { container } = await waitFor(() => renderApp({ path: '/notExist' }));
+      const { container } = await waitForWithPath('/notExist');
 
       expect(container).toHaveTextContent('해당 페이지를 찾을 수 없습니다');
     });

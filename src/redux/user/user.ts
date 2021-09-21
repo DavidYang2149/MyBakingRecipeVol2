@@ -1,13 +1,13 @@
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 
-import { User } from 'src/types/user';
+import { UserState } from 'src/types/user';
 import { postUserLogin, postUserLogout, getCurrentUser } from 'src/services/user/user';
 import { loadItem, removeItem, saveItem } from 'src/utils/storage';
 import { isNotEmpty } from 'src/utils/tools';
 
 export type UserReducer = ReturnType<typeof reducer>;
 
-const initialState: User = {
+const initialState: UserState = {
   userId: '',
   displayName: '',
 };

@@ -2,7 +2,7 @@ import { AnyAction } from '@reduxjs/toolkit';
 import configureStore from 'redux-mock-store';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 
-import { User } from 'src/types/user';
+import { UserState } from 'src/types/user';
 import reducer, {
   setUser,
   clearUser,
@@ -28,7 +28,7 @@ jest.mock('src/services/user/user');
 jest.mock('src/utils/storage');
 
 describe('user reducer', () => {
-  const initialState: User = {
+  const initialState: UserState = {
     userId: '',
     displayName: '',
   };

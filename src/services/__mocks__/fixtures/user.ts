@@ -1,6 +1,6 @@
-import { User } from 'src/types/user';
+import { UserState } from 'src/types/user';
 
-const user: User = {
+const user: UserState = {
   userId: '',
   displayName: '',
 };

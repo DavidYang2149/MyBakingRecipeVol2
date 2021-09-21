@@ -2,14 +2,14 @@ import { AnyAction } from '@reduxjs/toolkit';
 import configureStore from 'redux-mock-store';
 import thunk, { ThunkDispatch } from 'redux-thunk';
 
-import { User } from 'src/types/user';
+import { UserState } from 'src/types/user';
 import reducer, {
   setUser,
   clearUser,
   requestLogin,
   requestLogout,
   requestSessionCheck,
-  UserState,
+  UserReducer,
 } from 'src/redux/user/user';
 import { RootState } from 'src/redux/rootReducer';
 import {
@@ -21,14 +21,14 @@ import mockState from 'src/services/__mocks__/fixtures/mockTools';
 import { loadItem } from 'src/utils/storage';
 
 const middlewares = [thunk];
-const mockStore = configureStore<UserState | RootState, ThunkDispatch<RootState, void, AnyAction>>(middlewares);
+const mockStore = configureStore<UserReducer | RootState, ThunkDispatch<RootState, void, AnyAction>>(middlewares);
 
 // XXX: connect services user Mock
 jest.mock('src/services/user/user');
 jest.mock('src/utils/storage');
 
 describe('user reducer', () => {
-  const initialState: User = {
+  const initialState: UserState = {
     userId: '',
     displayName: '',
   };

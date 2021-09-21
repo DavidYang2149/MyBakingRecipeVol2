@@ -5,7 +5,7 @@ import { postUserLogin, postUserLogout, getCurrentUser } from 'src/services/user
 import { loadItem, removeItem, saveItem } from 'src/utils/storage';
 import { isNotEmpty } from 'src/utils/tools';
 
-export type UserState = ReturnType<typeof reducer>;
+export type UserReducer = ReturnType<typeof reducer>;
 
 const initialState: User = {
   userId: '',

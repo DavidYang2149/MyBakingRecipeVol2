@@ -9,7 +9,7 @@ import reducer, {
   requestLogin,
   requestLogout,
   requestSessionCheck,
-  UserState,
+  UserReducer,
 } from 'src/redux/user/user';
 import { RootState } from 'src/redux/rootReducer';
 import {
@@ -21,7 +21,7 @@ import mockState from 'src/services/__mocks__/fixtures/mockTools';
 import { loadItem } from 'src/utils/storage';
 
 const middlewares = [thunk];
-const mockStore = configureStore<UserState | RootState, ThunkDispatch<RootState, void, AnyAction>>(middlewares);
+const mockStore = configureStore<UserReducer | RootState, ThunkDispatch<RootState, void, AnyAction>>(middlewares);
 
 // XXX: connect services user Mock
 jest.mock('src/services/user/user');

@@ -16,11 +16,18 @@ const RecipeImage = ({ image }: Props) => {
       <div>
         <label
           htmlFor="displayImage"
-          className="recipeImageLabel"
+          className="label-recipe-image"
         >
           이미지
         </label>
-        <img id="displayImage" src={image || theDefaultImage} width="200px" height="200px" alt="recipe" />
+        <img
+          id="displayImage"
+          className="img-recipe-image"
+          src={image || theDefaultImage}
+          width="200px"
+          height="200px"
+          alt="recipe"
+        />
       </div>
     </section>
   );

@@ -16,48 +16,48 @@ interface Props {
 
 const Header = ({ userId, onSignIn, onSignOut }: Props) => {
   return (
-    <nav className="header">
+    <nav className="nav-header">
       <div>
         <Link to="/">
           <img
-            className="homeImg"
+            className="img-home"
             src={`${theBaseImageURL}assets/images/home.svg`}
             alt="Home"
           />
         </Link>
         <Link to="/">
-          <h1 className="homeH1">My Baking Recipe</h1>
+          <h1 className="h1-home">My Baking Recipe</h1>
         </Link>
       </div>
       {
         userId
           ? (
-            <div className="userInfo">
-              <p className="userName">
+            <div className="div-user-info">
+              <p className="p-user-name">
                 <Link to="/">
                   {splitReturnFirst(userId)('@')}
                 </Link>
               </p>
               <button
-                className="headerButton"
+                className="button-header"
                 type="button"
               >
                 New Recipe
               </button>
               <button
-                className="headerButton"
+                className="button-header"
                 type="button"
                 onClick={onSignOut}
               >
                 Logout
               </button>
               <img
-                className="userIcon"
+                className="img-user-icon"
                 src={`${theBaseImageURL}assets/images/new-recipe.svg`}
                 alt="New Recipe"
               />
               <img
-                className="userIcon"
+                className="img-user-icon"
                 src={`${theBaseImageURL}assets/images/close-outline.svg`}
                 onClick={onSignOut}
                 alt="Logout"
@@ -66,14 +66,14 @@ const Header = ({ userId, onSignIn, onSignOut }: Props) => {
           ) : (
             <>
               <button
-                className="headerButton"
+                className="button-header"
                 type="button"
                 onClick={onSignIn}
               >
                 Sign in (Google)
               </button>
               <img
-                className="userIcon"
+                className="img-user-icon"
                 src={`${theBaseImageURL}assets/images/login-google.svg`}
                 onClick={onSignIn}
                 alt="singIn"

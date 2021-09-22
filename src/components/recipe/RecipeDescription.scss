@@ -1,4 +1,4 @@
-.recipeDescription {
+.label-recipe-description {
   // display: ${(props) => props.display};
   display: block;
   font-size: 1.1rem;
@@ -9,7 +9,7 @@
   padding: 0.5rem;
 }
 
-.recipeDutyDescription {
+.label-duty-recipe-description {
   // display: ${(props) => props.display};
   display: block;
   font-size: 1.1rem;
@@ -28,7 +28,7 @@
   }
 }
 
-.recipeTextarea {
+.textarea-recipe {
   color: #000;
   min-width: 300px;
   min-height: 200px;

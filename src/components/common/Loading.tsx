@@ -4,8 +4,8 @@ import './Loading.scss';
 
 const Loading = () => {
   return (
-    <div className="modal">
-      <div className="loadingAnimation" />
+    <div className="div-modal">
+      <div className="div-loading-animation" />
     </div>
   );
 };

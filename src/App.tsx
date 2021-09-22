@@ -22,7 +22,7 @@ const App = () => {
     <>
       <Suspense fallback={<Loading />}>
         <HeaderContainer />
-        <div className="main">
+        <div className="div-main">
           <Switch>
             <Route exact path="/" component={RecipesPage} />
             <Route path="/recipe/:id" component={RecipePage} />

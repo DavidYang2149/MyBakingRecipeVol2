@@ -8,7 +8,7 @@ export interface Props {
 
 const RecipeTitle = ({ title }: Props) => {
   return (
-    <p className="recipeTitle">
+    <p className="p-recipe-title">
       {title}
     </p>
   );

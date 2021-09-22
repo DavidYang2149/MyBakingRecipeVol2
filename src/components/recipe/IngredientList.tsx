@@ -28,14 +28,14 @@ const IngredientList = ({
         <ul>
           <li>
             <label
-              className="ingredientName"
+              className="label-ingredient-name"
             // width="32%"
             // display="inline-block"
             >
               원재료
             </label>
             <label
-              className="ingredientName"
+              className="label-ingredient-name"
             // width="20%"
             // display="inline-block"
             >

@@ -18,7 +18,7 @@ const RecipeList = ({ recipesBook }: Props) => {
   }
 
   return (
-    <ul className="recipeList">
+    <ul className="ul-recipe-list">
       {(
         recipesBook.map((recipe: Recipe) => (
           <RecipeItem key={recipe.id} recipe={recipe} />

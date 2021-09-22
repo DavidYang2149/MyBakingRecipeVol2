@@ -18,10 +18,10 @@ const RecipeItem = ({ recipe }: Props) => {
   const theDefaultImage = `${theBaseImageURL}assets/images/cookie.jpeg`;
 
   return (
-    <li className="recipeItem">
+    <li className="li-recipe-item">
       <Link to={`/recipe/${id}`}>
         <figure
-          className="card-image"
+          className="figure-card-image"
           style={{ backgroundImage: `url(${image || theDefaultImage})` }}
         >
           <img
@@ -29,10 +29,10 @@ const RecipeItem = ({ recipe }: Props) => {
             alt="recipe"
           />
         </figure>
-        <div className="card-desc">
+        <div className="div-card-description">
           <h1>{title}</h1>
           <p>{description.length > 30 ? `${description.substring(0, 30)}...` : description}</p>
-          <p className="card-created">{created?.substr(0, 10)}</p>
+          <p className="p-card-created">{created?.substr(0, 10)}</p>
           <p>
             by
             {' '}

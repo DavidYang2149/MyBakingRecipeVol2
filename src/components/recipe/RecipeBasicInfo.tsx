@@ -22,7 +22,7 @@ const RecipeBasicInfo = ({
         ? (
           <label
             htmlFor="title"
-            className="recipeLabel"
+            className="label-recipe"
           // display="block"
           >
             레시피명
@@ -30,7 +30,7 @@ const RecipeBasicInfo = ({
         ) : (
           <label
             htmlFor="title"
-            className="recipeDutyLabel"
+            className="label-duty-recipe"
           // display="block"
           >
             레시피명
@@ -40,7 +40,7 @@ const RecipeBasicInfo = ({
         type="text"
         id="title"
         name="title"
-        className="recipeInput"
+        className="input-recipe"
         value={title}
         onChange={onChange}
         disabled={!(onChange)}
@@ -52,7 +52,7 @@ const RecipeBasicInfo = ({
           <>
             <label
               htmlFor="category"
-              className="recipeLabel"
+              className="label-recipe"
             // width="30%"
             // display="inline-block"
             >
@@ -60,7 +60,7 @@ const RecipeBasicInfo = ({
             </label>
             <label
               htmlFor="product"
-              className="recipeLabel"
+              className="label-recipe"
             // width="20%"
             // display="inline-block"
             >
@@ -71,7 +71,7 @@ const RecipeBasicInfo = ({
           <>
             <label
               htmlFor="category"
-              className="recipeDutyLabel"
+              className="label-duty-recipe"
             // width="30%"
             // display="inline-block"
             >
@@ -79,7 +79,7 @@ const RecipeBasicInfo = ({
             </label>
             <label
               htmlFor="product"
-              className="recipeDutyLabel"
+              className="label-duty-recipe"
             // width="20%"
             // display="inline-block"
             >
@@ -91,7 +91,7 @@ const RecipeBasicInfo = ({
         <select
           id="category"
           name="category"
-          className="recipeSelect"
+          className="select-recipe"
           value={category}
           onChange={onChange}
           disabled={!(onChange)}
@@ -109,13 +109,13 @@ const RecipeBasicInfo = ({
           max="1000000000"
           id="product"
           name="product"
-          className="recipeInput"
+          className="input-recipe"
           value={product}
           onChange={onChange}
           disabled={!(onChange)}
         // width="20%"
         />
-        <span className="recipeCount">개</span>
+        <span className="span-recipe-count">개</span>
       </div>
     </section>
   );

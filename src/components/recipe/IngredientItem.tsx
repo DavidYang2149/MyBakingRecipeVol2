@@ -25,7 +25,7 @@ const IngredientItem = ({
           type="text"
           id={`ingredient-${id}`}
           name={`ingredient-${id}`}
-          className="ingredientInput"
+          className="input-ingredient"
           value={ingredient}
           // width="30%"
           disabled
@@ -36,13 +36,13 @@ const IngredientItem = ({
           max="1000000000"
           id={`weight-${id}`}
           name={`weight-${id}`}
-          className="ingredientInput"
+          className="input-ingredient"
           value={weight}
           onChange={onChangeIngredient}
           // width="20%"
           disabled
         />
-        <span className="ingredientCount">g</span>
+        <span className="span-ingredient-count">g</span>
       </li>
     );
   }
@@ -53,12 +53,12 @@ const IngredientItem = ({
       {...provided.dragHandleProps}
       {...provided.draggableProps}
     >
-      <span className="hamburger" />
+      <span className="span-hamburger" />
       <input
         type="text"
         id={`ingredient-${id}`}
         name={`ingredient-${id}`}
-        className="ingredientInput"
+        className="input-ingredient"
         value={ingredient}
         onChange={onChangeIngredient}
         width="24%"
@@ -69,15 +69,15 @@ const IngredientItem = ({
         max="1000000000"
         id={`weight-${id}`}
         name={`weight-${id}`}
-        className="ingredientInput"
+        className="input-ingredient"
         value={weight}
         onChange={onChangeIngredient}
         width="13%"
       />
-      <span className="ingredientCount">g</span>
+      <span className="span-ingredient-count">g</span>
       <button
         type="button"
-        className="ingredientDeleteButton"
+        className="button-ingredient-delete"
         onClick={onRemoveIngredient}
         value={id}
       >

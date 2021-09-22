@@ -12,7 +12,7 @@ const RecipeDescription = ({ description, onChange }: Props) => {
     <section>
       <label
         htmlFor="description"
-        className={onChange ? 'recipeDutyDescription' : 'recipeDescription'}
+        className={onChange ? 'label-duty-recipe-description' : 'label-recipe-description'}
       // display="block"
       >
         만드는 방법
@@ -20,7 +20,7 @@ const RecipeDescription = ({ description, onChange }: Props) => {
       <textarea
         id="description"
         name="description"
-        className="recipeTextarea"
+        className="textarea-recipe"
         value={description}
         onChange={onChange}
         disabled={!(onChange)}

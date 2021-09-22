@@ -10,10 +10,10 @@ export interface Props {
 const RecipeWriter = ({ user, created }: Props) => {
   return (
     <>
-      <span className="recipeWriter">{user}</span>
+      <span className="span-recipe-writer">{user}</span>
       {' '}
-      <span className="recipeWriteDate">{created.substr(0, 10)}</span>
-      <hr className="recipeWriteLine" />
+      <span className="span-recipe-write-date">{created.substr(0, 10)}</span>
+      <hr className="hr-recipe-write-line" />
     </>
   );
 };

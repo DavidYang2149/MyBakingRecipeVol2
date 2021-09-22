@@ -15,6 +15,8 @@ import IngredientList from 'src/components/recipe/IngredientList';
 // import { updateRecipes } from 'src/redux/recipes';
 import { RootState } from 'src/redux/rootReducer';
 
+import './RecipeContainer.scss';
+
 const RecipeContainer = () => {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -65,14 +67,14 @@ const RecipeContainer = () => {
             <Link to={`/recipewrite/${id}`}>
               <button
                 type="button"
-                className="button"
+                className="button-recipe-owner"
               >
                 수정하기
               </button>
             </Link>
             <button
               type="button"
-              className="button"
+              className="button-recipe-owner"
               onClick={onRemove}
               disabled={loading}
             >

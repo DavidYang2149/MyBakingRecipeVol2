@@ -248,3 +248,33 @@
     @content;
   }
 }
+
+@mixin display-type {
+  .block {
+    display: block;
+  }
+  .inline-block {
+    display: inline-block;
+  }
+}
+
+@mixin width-range {
+  .width-13 {
+    width: 13%;
+  }
+  .width-20 {
+    width: 20%;
+  }
+  .width-24 {
+    width: 24%;
+  }
+  .width-30 {
+    width: 30%;
+  }
+  .width-32 {
+    width: 32%;
+  }
+  .width-60 {
+    width: 60%;
+  }
+}

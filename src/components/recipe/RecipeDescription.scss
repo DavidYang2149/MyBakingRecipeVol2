@@ -1,19 +1,9 @@
 .label-recipe-description {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 100px;
-  margin: 0.125rem;
-  padding: 0.5rem;
+  @include common-label();
 }
 
 .label-duty-recipe-description {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 100px;
-  margin: 0.125rem;
-  padding: 0.5rem;
+  @include common-label();
 
   :before {
   color: #ed5464;

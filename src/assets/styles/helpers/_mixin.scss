@@ -279,6 +279,18 @@
   }
 }
 
+@mixin duty-asterisk {
+  .duty {
+    :before {
+      color: #ed5464;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-right: 5px;
+      content: '*';
+    }
+  }
+}
+
 @mixin common-label {
   display: block;
   font-size: 1.1rem;

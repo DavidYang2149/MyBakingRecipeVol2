@@ -2,18 +2,6 @@
   @include common-label();
 }
 
-.label-duty-recipe-description {
-  @include common-label();
-
-  :before {
-  color: #ed5464;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-right: 5px;
-  content: '*';
-  }
-}
-
 .textarea-recipe {
   color: #000;
   min-width: 300px;

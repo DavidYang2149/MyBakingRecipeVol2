@@ -18,22 +18,12 @@ const RecipeBasicInfo = ({
 }: Props) => {
   return (
     <section>
-      {!(onChange)
-        ? (
-          <label
-            htmlFor="title"
-            className="label-recipe block"
-          >
-            레시피명
-          </label>
-        ) : (
-          <label
-            htmlFor="title"
-            className="label-duty-recipe block"
-          >
-            레시피명
-          </label>
-        )}
+      <label
+        htmlFor="title"
+        className={`${onChange ? 'duty' : ''} label-recipe block`}
+      >
+        레시피명
+      </label>
       <input
         type="text"
         id="title"
@@ -43,38 +33,18 @@ const RecipeBasicInfo = ({
         onChange={onChange}
         disabled={!(onChange)}
       />
-      {!(onChange)
-        ? (
-          <>
-            <label
-              htmlFor="category"
-              className="label-recipe inline-block width-30"
-            >
-              카테고리
-            </label>
-            <label
-              htmlFor="product"
-              className="label-recipe inline-block width-20"
-            >
-              생산량
-            </label>
-          </>
-        ) : (
-          <>
-            <label
-              htmlFor="category"
-              className="label-duty-recipe inline-block width-30"
-            >
-              카테고리
-            </label>
-            <label
-              htmlFor="product"
-              className="label-duty-recipe inline-block width-20"
-            >
-              생산량
-            </label>
-          </>
-        )}
+      <label
+        htmlFor="category"
+        className={`${onChange ? 'duty' : ''} label-recipe inline-block width-30`}
+      >
+        카테고리
+      </label>
+      <label
+        htmlFor="product"
+        className={`${onChange ? 'duty' : ''} label-recipe inline-block width-20`}
+      >
+        생산량
+      </label>
       <div>
         <select
           id="category"

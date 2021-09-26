@@ -2,20 +2,6 @@
   @include common-label();
 }
 
-// TODO: 하나로 합치기
-.label-duty-recipe {
-  @include common-label();
-
-  :before {
-    color: #ed5464;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-right: 5px;
-    content: '*';
-  
-    }
-}
-
 .input-recipe {
   color: #000;
   display: block;

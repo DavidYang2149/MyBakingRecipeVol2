@@ -12,7 +12,7 @@ const RecipeDescription = ({ description, onChange }: Props) => {
     <section>
       <label
         htmlFor="description"
-        className={`${(onChange ? 'label-duty-recipe-description' : 'label-recipe-description')} block`}
+        className={`${(onChange ? 'duty' : '')} label-recipe-description block`}
       >
         만드는 방법
       </label>

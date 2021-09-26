@@ -28,16 +28,12 @@ const IngredientList = ({
         <ul>
           <li>
             <label
-              className="label-ingredient-name"
-            // width="32%"
-            // display="inline-block"
+              className="label-ingredient-name inline-block width-32"
             >
               원재료
             </label>
             <label
-              className="label-ingredient-name"
-            // width="20%"
-            // display="inline-block"
+              className="label-ingredient-name inline-block width-20"
             >
               용량
             </label>

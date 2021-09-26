@@ -25,9 +25,8 @@ const IngredientItem = ({
           type="text"
           id={`ingredient-${id}`}
           name={`ingredient-${id}`}
-          className="input-ingredient"
+          className="input-ingredient width-30"
           value={ingredient}
-          // width="30%"
           disabled
         />
         <input
@@ -36,10 +35,9 @@ const IngredientItem = ({
           max="1000000000"
           id={`weight-${id}`}
           name={`weight-${id}`}
-          className="input-ingredient"
+          className="input-ingredient width-20"
           value={weight}
           onChange={onChangeIngredient}
-          // width="20%"
           disabled
         />
         <span className="span-ingredient-count">g</span>
@@ -58,10 +56,9 @@ const IngredientItem = ({
         type="text"
         id={`ingredient-${id}`}
         name={`ingredient-${id}`}
-        className="input-ingredient"
+        className="input-ingredient width-24"
         value={ingredient}
         onChange={onChangeIngredient}
-        width="24%"
       />
       <input
         type="number"
@@ -69,10 +66,9 @@ const IngredientItem = ({
         max="1000000000"
         id={`weight-${id}`}
         name={`weight-${id}`}
-        className="input-ingredient"
+        className="input-ingredient width-13"
         value={weight}
         onChange={onChangeIngredient}
-        width="13%"
       />
       <span className="span-ingredient-count">g</span>
       <button

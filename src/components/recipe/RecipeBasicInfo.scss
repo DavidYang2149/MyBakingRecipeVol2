@@ -1,10 +1,8 @@
 .label-recipe {
   display: block;
-  // display: ${(props) => props.display};
   font-size: 1.1rem;
   font-weight: 700;
   min-width: 100px;
-  // width: ${(props) => props.width};
   margin: 0.125rem;
   padding: 0.5rem;
 }
@@ -12,11 +10,9 @@
 // TODO: 하나로 합치기
 .label-duty-recipe {
   display: block;
-  // display: ${(props) => props.display};
   font-size: 1.1rem;
   font-weight: 700;
   min-width: 100px;
-  // width: ${(props) => props.width};
   margin: 0.125rem;
   padding: 0.5rem;
 
@@ -33,9 +29,7 @@
 .input-recipe {
   color: #000;
   display: block;
-  // display: ${(props) => props.display};
   min-width: 100px;
-  // width: ${(props) => props.width};
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 0.25rem;
@@ -49,7 +43,6 @@
 .select-recipe {
   color: #000;
   min-width: 100px;
-  // width: ${(props) => props.width};
   font-size: 1.1rem;
   font-weight: 500;
   border-radius: 0.25rem;

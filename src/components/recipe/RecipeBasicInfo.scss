@@ -1,63 +1,17 @@
 .label-recipe {
-  display: block;
-  // display: ${(props) => props.display};
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 100px;
-  // width: ${(props) => props.width};
-  margin: 0.125rem;
-  padding: 0.5rem;
-}
-
-// TODO: 하나로 합치기
-.label-duty-recipe {
-  display: block;
-  // display: ${(props) => props.display};
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 100px;
-  // width: ${(props) => props.width};
-  margin: 0.125rem;
-  padding: 0.5rem;
-
-  :before {
-    color: #ed5464;
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-right: 5px;
-    content: '*';
-  
-    }
+  @include common-label();
 }
 
 .input-recipe {
-  color: #000;
+  @include basic-input();
+
   display: block;
-  // display: ${(props) => props.display};
-  min-width: 100px;
-  // width: ${(props) => props.width};
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 0.25rem;
-  border: 1px solid #e5e7eb;
-  background-color: #e4e7eb;
-  height: 24px;
-  margin: 0.5rem;
-  padding: 0.75rem;
 }
 
 .select-recipe {
-  color: #000;
-  min-width: 100px;
-  // width: ${(props) => props.width};
-  font-size: 1.1rem;
-  font-weight: 500;
-  border-radius: 0.25rem;
-  border: 1px solid #e5e7eb;
-  background-color: #e4e7eb;
+  @include basic-input();
+
   height: 48px;
-  margin: 0.5rem;
-  padding: 0.75rem;
 }
 
 .span-recipe-count {

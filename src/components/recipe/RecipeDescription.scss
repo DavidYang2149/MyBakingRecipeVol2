@@ -1,31 +1,5 @@
 .label-recipe-description {
-  // display: ${(props) => props.display};
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 100px;
-  // width: ${(props) => props.width};
-  margin: 0.125rem;
-  padding: 0.5rem;
-}
-
-.label-duty-recipe-description {
-  // display: ${(props) => props.display};
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
-  min-width: 100px;
-  // width: ${(props) => props.width};
-  margin: 0.125rem;
-  padding: 0.5rem;
-
-  :before {
-  color: #ed5464;
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-right: 5px;
-  content: '*';
-  }
+  @include common-label();
 }
 
 .textarea-recipe {
